@@ -103,6 +103,24 @@ En cas de succès la liste d'actes définie dans AtHome :
 - `Libelle` : Nom de l'acte *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
 
+## Créer un Acte
+
+Crée un acte et retourne son ID.
+
+http://dev.arcan.fr/AtHome/api/Sejour/Acte/commands/CreerActeCommand/Execute
+
+### Paramètres
+
+- `Libelle` : Nom de l'acte *(string)*
+- `LibelleCourt` : Nom de l'acte, version courte *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
+
+### Retour
+
+En cas de succès l'id de l'acte créé :
+
+- `ActeId` : *(int)*
+
 ## Obtenir la liste de type d'intervenants
 
 Retourne la liste des types d'intervenants existants sur AtHome.
@@ -122,15 +140,17 @@ En cas de succès la liste des types d'intervenants définis dans AtHome :
 
 ## Obtenir des plans de soins
 
+### A) Par Sejour ID
+
 Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
 http://dev.arcan.fr/AtHome/api/Sejour/Sejour/queries/GetPlansSoinsParSejoursQuery
 
-### Paramètres
+#### Paramètres
 
 - `SejourIds` : Liste d'ID de séjours *(array)*
 
-### Retour
+#### Retour
 
 - `PlanSoinsId` : ID du plan de soins *(decimal)*
 - `SejourId` : ID du séjour *(decimal)*
@@ -145,8 +165,43 @@ Entité **LignePlanSoins** :
 
 - `LignePlanSoinsId` : ID de la ligne de soins *(decimal)*
 - `Jour` : Entier compris entre 0 et 6. 0 = Dimanche, 1 = Lundi… *(int)*
-- `HeureDebut` : HH:MM:SS* (string)*
-- `HeureFin` : HH:MM:SS* (string)*
+- `HeureDebut` : D:HH:MM:SS* (string)*
+- `HeureFin` : D:HH:MM:SS* (string)*
+- `Obligatoire` : *(bool)*
+- `Actes` : Liste des actes _(array d'**Acte**)_
+
+Entité **Acte** :
+
+- `ActeId` : ID de l'acte *(decimal)*
+- `Libelle` : Nom de l'acte *(string)*
+
+### B) Par Plan de Soins ID
+
+Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
+
+http://dev.arcan.fr/AtHome/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery
+
+#### Paramètres
+
+- `PlanSoinsId` : ID du plan de soins *(array)*
+
+#### Retour
+
+- `PlanSoinsId` : ID du plan de soins *(decimal)*
+- `SejourId` : ID du séjour *(decimal)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DD *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DD *(string)*
+- `DateFinPrevisonnelle` : Date de fin prévisionelle, YYYY-MM-DD *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(string)*
+- `TypeIntervenantLibelle` : Nom du type d'intervenant *(string)*
+- `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
+
+Entité **LignePlanSoins** :
+
+- `LignePlanSoinsId` : ID de la ligne de soins *(decimal)*
+- `Jour` : Entier compris entre 0 et 6. 0 = Dimanche, 1 = Lundi… *(int)*
+- `HeureDebut` : D:HH:MM:SS* (string)*
+- `HeureFin` : D:HH:MM:SS* (string)*
 - `Obligatoire` : *(bool)*
 - `Actes` : Liste des actes _(array d'**Acte**)_
 
@@ -173,11 +228,38 @@ http://dev.arcan.fr/AtHome/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSa
 Entité **LignePlanSoins** :
 
 - `Jour` : Entier compris entre 0 et 6, 0 pour Dimanche, 6 pour Samedi *(int)*
-- `HeureDebut` : Heure de début du passage, HH:MM:SS *(string)*
-- `HeureFin` : Heure de fun du passage, HH:MM:SS *(string)*
+- `HeureDebut` : Heure de début du passage, D:HH:MM:SS *(string)*
+- `HeureFin` : Heure de fin du passage, D:HH:MM:SS *(string)*
 - `Obligatoire` : *(bool)*
 - `ActeIds` : Liste d'ID d'actes *(array d'int)*
 
 ### Retour
 
+
+
+## Mettre-à-jour un plan de soins
+
+Met un plan de soins à jour.
+
+http://dev.arcan.fr/AtHome/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute
+
+### Paramètres
+
+- `PlanSoinId` : ID du plan de soins *(decimal)*
+- `SejourId` : ID du séjour *(decimal)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DD *(string)*
+- `DateFin` : Date de fin du plan de soins, YYYY-MM-DD *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
+- `Commentaire` : Commentaire *(string)*
+- `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
+
+Entité **LignePlanSoins** :
+
+- `Jour` : Entier compris entre 0 et 6, 0 pour Dimanche, 6 pour Samedi *(int)*
+- `HeureDebut` : Heure de début du passage, D:HH:MM:SS *(string)*
+- `HeureFin` : Heure de fin du passage, D:HH:MM:SS *(string)*
+- `Obligatoire` : *(bool)*
+- `ActeIds` : Liste d'ID d'actes *(array d'int)*
+
+### Retour
 
