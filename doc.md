@@ -4,7 +4,7 @@
 
 Retourne le patient associé à l'ID donné.
 
-http://dev.arcan.fr/AtHome/api/Patient/Patient/queries/GetPatientParIdQuery
+/api/Patient/Patient/queries/GetPatientParIdQuery
 
 ### Paramètres
 
@@ -56,16 +56,44 @@ Entité **Adresse** :
 
 ## Obtenir un séjour
 
+### A) Par date
+
 Retourne un séjour compris entre une date de début et de fin.
 
-http://dev.arcan.fr/AtHome/api/Sejour/Sejour/queries/GetSejourParDateQuery
+/api/Sejour/Sejour/queries/GetSejourParDateQuery
 
-### Paramètres
+#### Paramètres
 
 - `DateDebut` : Date de début, YYYY-MM-DD *(string)*
 - `DateFin` : Date de fin, YYYY-MM-DD *(string)*
 
-### Retour
+#### Retour
+
+En cas de succès une entité **Sejour** :
+
+- `SejourId` : ID du séjour *(decimal)*
+- `IdentifiantExterne` : ID externe *(string)*
+- `PatientId` : ID du patient *(decimal)*
+- `DateDebut` : YYYY-MM-DD *(string)*
+- `DateDebutPrevisionnel` : YYYY-MM-DD *(string)*
+- `DateFin` : YYYY-MM-DD *(string)*
+- `DateFinPrevisionnelle` : YYYY-MM-DD *(string)*
+- `AntenneId` : ID de l'antenne *(decimal)*
+- `AntenneNom` : Nom de l'antenne *(string)*
+- `UniteServiceId` : ID de l'unité de service *(decimal)*
+- `UniteServiceNom` : Nom de l'unité de service *(string)*
+
+### B) Par ID externe
+
+Retourne un séjour correspondant à l'ID externe donné.
+
+/api/Sejour/Sejour/queries/GetSejourParIdExterneQuery 
+
+#### Paramètres
+
+- `IdentifiantExterne` : *(string)*
+
+#### Retour
 
 En cas de succès une entité **Sejour** :
 
@@ -89,7 +117,7 @@ En cas de succès une entité **Sejour** :
 
 Retourne la liste des actes existants sur AtHome.
 
-http://dev.arcan.fr/AtHome/api/Sejour/Sejour/queries/GetActesQuery
+/api/Sejour/Sejour/queries/GetActesQuery
 
 ### Paramètres
 
@@ -103,11 +131,29 @@ En cas de succès la liste d'actes définie dans AtHome :
 - `Libelle` : Nom de l'acte *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
 
+## Obtenir un Acte par ID
+
+Retourne l'acte correspondant à l'ID donné.
+
+/api/Sejour/Sejour/queries/GetActeParIdQuery
+
+### Paramètres
+
+- `ActeId` : ID de l'acte *(int)*
+
+### Retour
+
+En cas de succès la liste d'actes définie dans AtHome :
+
+- `ActeId` : ID de l'acte *(int)*
+- `Libelle` : Nom de l'acte *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
+
 ## Créer un Acte
 
 Crée un acte et retourne son ID.
 
-http://dev.arcan.fr/AtHome/api/Sejour/Acte/commands/CreerActeCommand/Execute
+/api/Sejour/Acte/commands/CreerActeCommand/Execute
 
 ### Paramètres
 
@@ -125,7 +171,7 @@ En cas de succès l'id de l'acte créé :
 
 Retourne la liste des types d'intervenants existants sur AtHome.
 
-http://dev.arcan.fr/AtHome/api/Sejour/Sejour/queries/GetTypesIntervenantsQuery
+/api/Sejour/Sejour/queries/GetTypesIntervenantsQuery
 
 ### Paramètres
 
@@ -140,15 +186,17 @@ En cas de succès la liste des types d'intervenants définis dans AtHome :
 
 ## Obtenir des plans de soins
 
-### A) Par Sejour ID
+### A) Par Sejours ID et Dates
 
 Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
-http://dev.arcan.fr/AtHome/api/Sejour/Sejour/queries/GetPlansSoinsParSejoursQuery
+/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParSejoursEtDatesQuery
 
 #### Paramètres
 
 - `SejourIds` : Liste d'ID de séjours *(array)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DD *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DD *(string)*
 
 #### Retour
 
@@ -179,7 +227,7 @@ Entité **Acte** :
 
 Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
-http://dev.arcan.fr/AtHome/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery
+/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery
 
 #### Paramètres
 
@@ -214,7 +262,7 @@ Entité **Acte** :
 
 Crée un plan de soin pour un séjour.
 
-http://dev.arcan.fr/AtHome/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSalarieCommand/Execute
+/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSalarieCommand/Execute
 
 ### Paramètres
 
@@ -241,7 +289,7 @@ Entité **LignePlanSoins** :
 
 Met un plan de soins à jour.
 
-http://dev.arcan.fr/AtHome/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute
+/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute
 
 ### Paramètres
 
@@ -260,6 +308,19 @@ Entité **LignePlanSoins** :
 - `HeureFin` : Heure de fin du passage, D:HH:MM:SS *(string)*
 - `Obligatoire` : *(bool)*
 - `ActeIds` : Liste d'ID d'actes *(array d'int)*
+
+### Retour
+
+
+## Supprimer un plan de soins
+
+Supprime le plan de soins correspondant à l'ID donné.
+
+/api/Sejour/PlanSoinSalarie/commands/SupprimerPlanSoinCommand/Execute
+
+### Paramètres
+
+- `PlanSoinId` : ID du plan de soins *(decimal)*
 
 ### Retour
 
