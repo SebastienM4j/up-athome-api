@@ -4,7 +4,7 @@
 
 Retourne le patient associé à l'ID donné.
 
-/api/Patient/Patient/queries/GetPatientParIdQuery
+**/api/Patient/Patient/queries/GetPatientParIdQuery**
 
 ### Paramètres
 
@@ -21,8 +21,8 @@ En cas de succès une entité **Patient** :
 - `Nom` : *(string)*
 - `Prenom` : *(string)*
 - `NomJeuneFille` : Nom de naissance *(string)*
-- `DateNaissance` : YYYY-MM-DD *(string)*
-- `DateDeces` : YYYY-MM-DD *(string)*
+- `DateNaissance` : YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateDeces` : YYYY-MM-DDTHH:MM:SS  *(string)*
 - `TelephoneFixe` : *(string)*
 - `TelephonePortable` : *(string)*
 - `Email` : *(string)*
@@ -31,7 +31,7 @@ En cas de succès une entité **Patient** :
 
 Entité **Adresse** :
 
-- `DateApplication` : Date à partir du quel l'adresse est utilisée, YYYY-MM-DD *(string)*
+- `DateApplication` : Date à partir du quel l'adresse est utilisée, YYYY-MM-DDTHH:MM:SS *(string)*
 - `Libelle` : *(string)*
 - `VilleId` : ID de la ville *(int)*
 - `VilleNom` : Nom de la ville *(string)*
@@ -60,12 +60,12 @@ Entité **Adresse** :
 
 Retourne un séjour compris entre une date de début et de fin.
 
-/api/Sejour/Sejour/queries/GetSejourParDateQuery
+**/api/Sejour/Sejour/queries/GetSejourParDateQuery**
 
 #### Paramètres
 
-- `DateDebut` : Date de début, YYYY-MM-DD *(string)*
-- `DateFin` : Date de fin, YYYY-MM-DD *(string)*
+- `DateDebut` : Date de début, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DDTHH:MM:SS *(string)*
 
 #### Retour
 
@@ -74,10 +74,10 @@ En cas de succès une entité **Sejour** :
 - `SejourId` : ID du séjour *(decimal)*
 - `IdentifiantExterne` : ID externe *(string)*
 - `PatientId` : ID du patient *(decimal)*
-- `DateDebut` : YYYY-MM-DD *(string)*
-- `DateDebutPrevisionnel` : YYYY-MM-DD *(string)*
-- `DateFin` : YYYY-MM-DD *(string)*
-- `DateFinPrevisionnelle` : YYYY-MM-DD *(string)*
+- `DateDebut` : YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateDebutPrevisionnel` : YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFinPrevisionnelle` : YYYY-MM-DDTHH:MM:SS *(string)*
 - `AntenneId` : ID de l'antenne *(decimal)*
 - `AntenneNom` : Nom de l'antenne *(string)*
 - `UniteServiceId` : ID de l'unité de service *(decimal)*
@@ -87,7 +87,7 @@ En cas de succès une entité **Sejour** :
 
 Retourne un séjour correspondant à l'ID externe donné.
 
-/api/Sejour/Sejour/queries/GetSejourParIdExterneQuery 
+**/api/Sejour/Sejour/queries/GetSejourParIdExterneQuery**
 
 #### Paramètres
 
@@ -100,10 +100,10 @@ En cas de succès une entité **Sejour** :
 - `SejourId` : ID du séjour *(decimal)*
 - `IdentifiantExterne` : ID externe *(string)*
 - `PatientId` : ID du patient *(decimal)*
-- `DateDebut` : YYYY-MM-DD *(string)*
-- `DateDebutPrevisionnel` : YYYY-MM-DD *(string)*
-- `DateFin` : YYYY-MM-DD *(string)*
-- `DateFinPrevisionnelle` : YYYY-MM-DD *(string)*
+- `DateDebut` : YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateDebutPrevisionnel` : YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFinPrevisionnelle` : YYYY-MM-DDTHH:MM:SS *(string)*
 - `AntenneId` : ID de l'antenne *(decimal)*
 - `AntenneNom` : Nom de l'antenne *(string)*
 - `UniteServiceId` : ID de l'unité de service *(decimal)*
@@ -117,7 +117,7 @@ En cas de succès une entité **Sejour** :
 
 Retourne la liste des actes existants sur AtHome.
 
-/api/Sejour/Sejour/queries/GetActesQuery
+**/api/Sejour/Sejour/queries/GetActesQuery**
 
 ### Paramètres
 
@@ -135,7 +135,7 @@ En cas de succès la liste d'actes définie dans AtHome :
 
 Retourne l'acte correspondant à l'ID donné.
 
-/api/Sejour/Sejour/queries/GetActeParIdQuery
+**/api/Sejour/Sejour/queries/GetActeParIdQuery**
 
 ### Paramètres
 
@@ -153,7 +153,7 @@ En cas de succès la liste d'actes définie dans AtHome :
 
 Crée un acte et retourne son ID.
 
-/api/Sejour/Acte/commands/CreerActeCommand/Execute
+**/api/Sejour/Acte/commands/CreerActeCommand/Execute**
 
 ### Paramètres
 
@@ -171,7 +171,7 @@ En cas de succès l'id de l'acte créé :
 
 Retourne la liste des types d'intervenants existants sur AtHome.
 
-/api/Sejour/Sejour/queries/GetTypesIntervenantsQuery
+**/api/Sejour/Sejour/queries/GetTypesIntervenantsQuery**
 
 ### Paramètres
 
@@ -190,21 +190,21 @@ En cas de succès la liste des types d'intervenants définis dans AtHome :
 
 Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
-/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParSejoursEtDatesQuery
+**/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParSejoursEtDatesQuery**
 
 #### Paramètres
 
 - `SejourIds` : Liste d'ID de séjours *(array)*
-- `DateDebut` : Date de début du plan de soins, YYYY-MM-DD *(string)*
-- `DateFin` : Date de fin, YYYY-MM-DD *(string)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DDTHH:MM:SS *(string)*
 
 #### Retour
 
 - `PlanSoinsId` : ID du plan de soins *(decimal)*
 - `SejourId` : ID du séjour *(decimal)*
-- `DateDebut` : Date de début du plan de soins, YYYY-MM-DD *(string)*
-- `DateFin` : Date de fin, YYYY-MM-DD *(string)*
-- `DateFinPrevisonnelle` : Date de fin prévisionelle, YYYY-MM-DD *(string)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFinPrevisonnelle` : Date de fin prévisionelle, YYYY-MM-DDTHH:MM:SS *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(string)*
 - `TypeIntervenantLibelle` : Nom du type d'intervenant *(string)*
 - `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
@@ -227,7 +227,7 @@ Entité **Acte** :
 
 Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
-/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery
+**/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery**
 
 #### Paramètres
 
@@ -237,9 +237,9 @@ Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
 - `PlanSoinsId` : ID du plan de soins *(decimal)*
 - `SejourId` : ID du séjour *(decimal)*
-- `DateDebut` : Date de début du plan de soins, YYYY-MM-DD *(string)*
-- `DateFin` : Date de fin, YYYY-MM-DD *(string)*
-- `DateFinPrevisonnelle` : Date de fin prévisionelle, YYYY-MM-DD *(string)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFinPrevisonnelle` : Date de fin prévisionelle, YYYY-MM-DDTHH:MM:SS *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(string)*
 - `TypeIntervenantLibelle` : Nom du type d'intervenant *(string)*
 - `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
@@ -262,13 +262,13 @@ Entité **Acte** :
 
 Crée un plan de soin pour un séjour.
 
-/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSalarieCommand/Execute
+**/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSalarieCommand/Execute**
 
 ### Paramètres
 
 - `SejourId` : ID du séjour *(decimal)*
-- `DateDebut` : Date de début du plan de soins, YYYY-MM-DD *(string)*
-- `DateFin` : Date de fin du plan de soins, YYYY-MM-DD *(string)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
 - `Commentaire` : Commentaire *(string)*
 - `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
@@ -283,20 +283,20 @@ Entité **LignePlanSoins** :
 
 ### Retour
 
-
+Si la création a réussi l'id du plan de soin créé.
 
 ## Mettre-à-jour un plan de soins
 
 Met un plan de soins à jour.
 
-/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute
+**/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute**
 
 ### Paramètres
 
 - `PlanSoinId` : ID du plan de soins *(decimal)*
 - `SejourId` : ID du séjour *(decimal)*
-- `DateDebut` : Date de début du plan de soins, YYYY-MM-DD *(string)*
-- `DateFin` : Date de fin du plan de soins, YYYY-MM-DD *(string)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
 - `Commentaire` : Commentaire *(string)*
 - `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
@@ -316,7 +316,7 @@ Entité **LignePlanSoins** :
 
 Supprime le plan de soins correspondant à l'ID donné.
 
-/api/Sejour/PlanSoinSalarie/commands/SupprimerPlanSoinCommand/Execute
+**/api/Sejour/PlanSoinSalarie/commands/SupprimerPlanSoinCommand/Execute**
 
 ### Paramètres
 
