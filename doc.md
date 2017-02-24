@@ -271,6 +271,7 @@ Crée un plan de soin pour un séjour.
 - `DateFin` : Date de fin du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
 - `Commentaire` : Commentaire *(string)*
+- `EtatPlanSoin` : 0 = Brouillon, 1 = Validé, 2 = Cloturé *(int)*
 - `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
 
 Entité **LignePlanSoins** :
@@ -299,6 +300,7 @@ Met un plan de soins à jour.
 - `DateFin` : Date de fin du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
 - `Commentaire` : Commentaire *(string)*
+- `EtatPlanSoin` : 0 = Brouillon, 1 = Validé, 2 = Cloturé *(int)*
 - `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
 
 Entité **LignePlanSoins** :
