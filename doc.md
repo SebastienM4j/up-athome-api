@@ -58,7 +58,7 @@ Entité **Adresse** :
 
 ### A) Par date
 
-Retourne un séjour compris entre une date de début et de fin.
+Retourne une liste de séjours comprise entre une date de début et de fin.
 
 **/api/Sejour/Sejour/queries/GetSejourParDateQuery**
 
@@ -69,7 +69,7 @@ Retourne un séjour compris entre une date de début et de fin.
 
 #### Retour
 
-En cas de succès une entité **Sejour** :
+En cas de succès une liste d'entité **Sejour** :
 
 - `SejourId` : ID du séjour *(decimal)*
 - `IdentifiantExterne` : ID externe *(string)*
