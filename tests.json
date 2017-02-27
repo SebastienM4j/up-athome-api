@@ -1,0 +1,903 @@
+{
+	"variables": [],
+	"info": {
+		"name": "AtHome WebAPI",
+		"_postman_id": "718619de-6dab-a1d1-e3c7-ae8e1675fb60",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Actes",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Actes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response is JSON\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"    ",
+									"    var entities = responseJSON.Entity;",
+									"    for (var i = 0; i < entities.length; i++)",
+									"    {",
+									"        var entity = entities[i];",
+									"        var str_acte = \"Acte[\" + i + \"]\";",
+									"        tests[str_acte + \".ActeId\"] = entity.ActeId !== null && entity.ActeId > 0;",
+									"        tests[str_acte + \".Libelle\"] = entity.Libelle !== null && entity.Libelle.length > 0;",
+									"        tests[str_acte + \".TypeIntervenantId\"] = entity.TypeIntervenantId !== null && entity.TypeIntervenantId > 0;",
+									"    }",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetActesQuery",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Actes Par ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response is JSON\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"",
+									"    var entity = responseJSON.Entity;",
+									"    tests[\"ActeId\"] = entity.ActeId !== null && entity.ActeId > 0;",
+									"    tests[\"Libelle\"] = entity.Libelle !== null && entity.Libelle.length > 0;",
+									"    tests[\"TypeIntervenantId\"] = entity.TypeIntervenantId !== null && entity.TypeIntervenantId > 0;",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetActeParIdQuery",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ActeId\": {{ACTECREAID}}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Creer Acte",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response is JSON\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"",
+									"    var entity = responseJSON.Entity;",
+									"    tests[\"ActeId\"] = entity.Entity !== null && entity.Entity > 0;",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/Acte/commands/CreerActeCommand/Execute",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"Libelle\": \"API - Creation acte\",\n  \"LibelleCourt\": \"api crea acte\",\n  \"TypeIntervenantId\": {{TINTERVID}}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Intervenants",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Types Intervenants",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"    ",
+									"    var entities = responseJSON.Entity;",
+									"    for (var i = 0; i < entities.length; i++)",
+									"    {",
+									"        var entity = entities[i];",
+									"        var str_type = \"TypeIntervenant[\" + i + \"]\";",
+									"        tests[str_type + \".TypeIntervenantId\"] = entity.TypeIntervenantId !== null && entity.TypeIntervenantId > 0;",
+									"        tests[str_type + \".Libelle\"] = entity.Libelle !== null && entity.Libelle.length > 0;",
+									"    }",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetTypesIntervenantsQuery",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patients",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Patient Par Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"",
+									"    var entity = responseJSON.Entity;",
+									"    tests[\"Patient ID\"] = entity.PatientId !== null && entity.PatientId > 0;",
+									"    tests[\"Sexe\"] = entity.Sexe !== null && (entity.Sexe.toLowerCase() == \"feminin\" || entity.Sexe.toLowerCase() == \"masculin\");",
+									"    tests[\"Civilite\"] = entity.Civilite !== null && (entity.Civilite.toLowerCase() == \"mr\" || entity.Civilite.toLowerCase() == \"mme\" || entity.Civilite.toLowerCase() == \"mlle\");",
+									"    tests[\"Nom\"] = entity.Nom !== null && entity.Nom.length > 0;",
+									"    tests[\"Prenom\"] = entity.Prenom !== null && entity.Prenom.length > 0;",
+									"    tests[\"Nom Naissance\"] = entity.NomJeuneFille !== null && entity.NomJeuneFille.length > 0;",
+									"    tests[\"Date Naissance\"] = entity.DateNaissance !== null && entity.DateNaissance.length > 0;",
+									"    ",
+									"    var adresses = entity.Adresses;",
+									"    for (var i = 0; i < adresses.length; i++)",
+									"    {",
+									"        var adresse = adresses[i];",
+									"        var str_adresse = \"Adresse[\" + i + \"]\";",
+									"        tests[str_adresse + \".Libelle\"] = adresse.Libelle !== null && adresse.Libelle.length > 0;",
+									"        tests[str_adresse + \".DateApplication\"] = adresse.DateApplication !== null && adresse.DateApplication.length > 0;",
+									"        tests[str_adresse + \".VilleId\"] = adresse.VilleId !== null && adresse.VilleId > 0;",
+									"        tests[str_adresse + \".VilleNom\"] = adresse.VilleNom !== null && adresse.VilleNom.length > 0;",
+									"        tests[str_adresse + \".CodePostal\"] = adresse.CodePostal !== null && adresse.CodePostal.length > 0;",
+									"        tests[str_adresse + \".Rue1\"] = adresse.Rue1 !== null && adresse.Rue1.length > 0;",
+									"    }",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Patient/Patient/queries/GetPatientParIdQuery",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"PatientId\": {{PATIENTID}}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plans de Soins",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Plans Soins Par ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"",
+									"    var entity = responseJSON.Entity;",
+									"    tests[\"SejourId\"] = entity.SejourId !== null && entity.SejourId > 0;",
+									"    tests[\"PlanSoinsId\"] = entity.PlanSoinsId !== null && entity.PlanSoinsId > 0;",
+									"    tests[\"DateDebut\"] = entity.DateDebut !== null && entity.DateDebut.length > 0;",
+									"    tests[\"TypeIntervenantId\"] = entity.TypeIntervenantId !== null && entity.TypeIntervenantId > 0;",
+									"    tests[\"TypeIntervenantLibelle\"] = entity.TypeIntervenantLibelle !== null && entity.TypeIntervenantLibelle.length > 0;",
+									"    ",
+									"    var lignes = entity.Lignes;",
+									"    for (var i = 0; i < lignes.length; i++)",
+									"    {",
+									"        var ligne = lignes[i];",
+									"        var str_ligne = \"Ligne[\" + i + \"]\";",
+									"        tests[str_ligne + \".LignePlanSoinsId\"] = ligne.LignePlanSoinsId !== null && ligne.LignePlanSoinsId > 0;",
+									"        tests[str_ligne + \".HeureDebut\"] = ligne.HeureDebut !== null && ligne.HeureDebut.length > 0;",
+									"        tests[str_ligne + \".HeureFin\"] = ligne.HeureFin !== null && ligne.HeureFin.length > 0;",
+									"",
+									"        var actes = ligne.Actes;",
+									"        for (var j = 0; j < actes.length; j++)",
+									"        {",
+									"            var acte = actes[j];",
+									"            var str_acte = \"Acte[\" + j + \"]\";",
+									"            tests[str_ligne + \".\" + str_acte + \".ActeId\"] = acte.ActeId !== null && acte.ActeId > 0;",
+									"            tests[str_ligne + \".\" + str_acte + \".Libelle\"] = acte.Libelle !== null && acte.Libelle.length > 0;",
+									"        }",
+									"    }",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"PlanSoinsId\": {{PLANSOINSID}}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Plans Soins Par Sejours Et Dates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"",
+									"    var entities = responseJSON.Entity;",
+									"    for (var i = 0; i < entities.length; i++)",
+									"    {",
+									"        var entity = entitties[i];",
+									"        var str_plan = \"PlanSoins[\" + i + \"]\";",
+									"        tests[str_plan + \".SejourId\"] = entity.SejourId !== null && entity.SejourId > 0;",
+									"        tests[str_plan + \".PlanSoinsId\"] = entity.PlanSoinsId !== null && entity.PlanSoinsId > 0;",
+									"        tests[str_plan + \".DateDebut\"] = entity.DateDebut !== null && entity.DateDebut.length > 0;",
+									"        tests[str_plan + \".TypeIntervenantId\"] = entity.TypeIntervenantId !== null && entity.TypeIntervenantId > 0;",
+									"        tests[str_plan + \".TypeIntervenantLibelle\"] = entity.TypeIntervenantLibelle !== null && entity.TypeIntervenantLibelle.length > 0;",
+									"    ",
+									"        var lignes = entity.Lignes;",
+									"        for (var j = 0; j < lignes.length; j++)",
+									"        {",
+									"            var ligne = lignes[j];",
+									"            var str_ligne = \"Ligne[\" + j + \"]\";",
+									"            tests[str_plan + \".\" + str_ligne + \".LignePlanSoinsId\"] = ligne.LignePlanSoinsId !== null && ligne.LignePlanSoinsId > 0;",
+									"            tests[str_plan + \".\" + str_ligne + \".HeureDebut\"] = ligne.HeureDebut !== null && ligne.HeureDebut.length > 0;",
+									"            tests[str_plan + \".\" + str_ligne + \".HeureFin\"] = ligne.HeureFin !== null && ligne.HeureFin.length > 0;",
+									"",
+									"            var actes = ligne.Actes;",
+									"            for (var k = 0; k < actes.length; k++)",
+									"            {",
+									"                var acte = actes[k];",
+									"                var str_acte = \"Acte[\" + k + \"]\";",
+									"                tests[str_plan + \".\" + str_ligne + \".\" + str_acte + \".ActeId\"] = acte.ActeId !== null && acte.ActeId > 0;",
+									"                tests[str_plan + \".\" + str_ligne + \".\" + str_acte + \".Libelle\"] = acte.Libelle !== null && acte.Libelle.length > 0;",
+									"            }",
+									"        }",
+									"    }",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParSejoursEtDatesQuery",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"SejourIds\": [\n  \t{{PLANSOINSID}}\n  \t],\n  \"DateDebut\": \"2017-02-23T09:15:02.802Z\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Creer Plan De Soin Salarie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSalarieCommand/Execute",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"DateDebut\": \"2017-05-23T09:15:02.802Z\",\n  \"DateFin\": \"2017-06-23T09:15:02.802Z\",\n  \"TypeIntervenantId\": {{TINTERVID}},\n  \"SejourId\": {{SEJOURID}},\n  \"EtatPlanSoin\": 1,\n  \"Commentaire\": \"un petit com\",\n  \"Lignes\": [\n    {\n      \"Jour\": 0,\n      \"HeureDebut\": \"0:8:30:0\",\n      \"HeureFin\": \"0:9:30:0\",\n      \"Obligatoire\": true,\n      \"ActeIds\": [\n        {{ACTEID}}\n      ]\n    }\n  ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Mettre A Jour Plan De Soins Salarie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"PlanSoinId\": {{PLANSOINSID}},\n  \"DateDebut\": \"2017-02-17T09:15:02.802Z\",\n  \"DateFin\": \"2017-03-17T09:15:02.802Z\",\n  \"TypeIntervenantId\": {{TINTERVID}},\n  \"SejourId\": {{SEJOURID}},\n  \"EtatPlanSoin\": 1,\n  \"Commentaire\": \"un petit com\",\n  \"Lignes\": [\n    {\n      \"Jour\": 0,\n      \"HeureDebut\": \"0:8:30:0\",\n      \"HeureFin\": \"0:9:30:0\",\n      \"Obligatoire\": true,\n      \"ActeIds\": [\n        {{ACTEID}}\n      ]\n    }\n  ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Supprimer Plan Soins",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/SupprimerPlanSoinCommand/Execute",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"PlanSoinId\": {{PLANSOINDELID}}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sejours",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Sejour Par Date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"    ",
+									"    var entities = responseJSON.Entity;",
+									"    for (var i = 0; i < entities.length; i++)",
+									"    {",
+									"        var entity = entities[i];",
+									"        var str_sejour = \"Sejour[\" + i + \"]\";",
+									"        tests[str_sejour + \".SejourId\"] = entity.SejourId !== null && entity.SejourId > 0;",
+									"        tests[str_sejour + \".PatientId\"] = entity.PatientId !== null && entity.PatientId > 0;",
+									"        tests[str_sejour + \".DateDebut\"] = entity.DateDebut !== null && entity.DateDebut.length > 0;",
+									"        tests[str_sejour + \".AntenneId\"] = entity.AntenneId !== null && entity.AntenneId > 0;",
+									"        tests[str_sejour + \".AntenneNom\"] = entity.AntenneNom !== null && entity.AntenneNom.length > 0;",
+									"    }",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetSejourParDateQuery",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"DateDebut\": \"2017-02-17T09:15:02.802Z\",\n  \"DateFin\": \"2017-02-17T09:15:02.802Z\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Sejour Par ID Externe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"",
+									"    var entity = responseJSON.Entity;",
+									"    tests[\"SejourId\"] = entity.SejourId !== null && entity.SejourId > 0;",
+									"    tests[\"PatientId\"] = entity.PatientId !== null && entity.PatientId > 0;",
+									"    tests[\"DateDebut\"] = entity.DateDebut !== null && entity.DateDebut.length > 0;",
+									"    tests[\"AntenneId\"] = entity.AntenneId !== null && entity.AntenneId > 0;",
+									"    tests[\"AntenneNom\"] = entity.AntenneNom !== null && entity.AntenneNom.length > 0;",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetSejourParIdExterneQuery ",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"IdentifiantExterne\": \"{{SEJOURIDEXTERNE}}\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
