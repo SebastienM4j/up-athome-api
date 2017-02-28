@@ -32,7 +32,7 @@ En cas de succès une entité **Patient** :
 Entité **Adresse** :
 
 - `DateApplication` : Date à partir du quel l'adresse est utilisée, YYYY-MM-DDTHH:MM:SS *(string)*
-- `Libelle` : *(string)*
+- `Libelle` : ID de l'adresse *(string)*
 - `VilleId` : ID de la ville *(int)*
 - `VilleNom` : Nom de la ville *(string)*
 - `CodePostal` : *(string)*
