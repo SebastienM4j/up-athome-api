@@ -13,7 +13,7 @@ Dans les environnements de Postman, importer [environnement.json](https://raw.gi
 - `ATHOME_URL` : URL be base du site AtHome (ex: https://dev.arcan.fr/AtHome)
 - `ATHOME_LOGIN` : login
 - `ATHOME_PASSWORD_HASH` : sha256 du mot-de-passe
-- `SEJOUR_ID_EXTERNE` : ID externe d'un séjour (lien AtHome <-> TELEVITALE/GeoSoin)
+- `SEJOUR_ID_EXTERNE` : ID externe d'un séjour (Pour tester la requete GetByIdentifiantExterne)
 - `DATE_DEBUT_SEJOUR` : YYYY-MM-DDTHH:MM:SS (ex: 2017-01-01T08:00:00)
 - `DATE_FIN_SEJOUR` : YYYY-MM-DDTHH:MM:SS (ex: 2017-06-30T08:00:00)
 
