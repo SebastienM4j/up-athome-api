@@ -1,0 +1,46 @@
+{
+  "id": "fccf70b7-f21c-1d91-9623-93e13d91c76f",
+  "name": "Arcan Tests",
+  "values": [
+    {
+      "enabled": true,
+      "key": "ATHOME_URL",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "ATHOME_LOGIN",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "ATHOME_PASSWORD_HASH",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "SEJOUR_ID_EXTERNE",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "DATE_DEBUT_SEJOUR",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "DATE_FIN_SEJOUR",
+      "value": "",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1488271892826,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-02-28T09:14:15.219Z",
+  "_postman_exported_using": "Postman/4.10.2"
+}
