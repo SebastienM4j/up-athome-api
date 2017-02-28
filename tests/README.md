@@ -10,12 +10,14 @@ Il suffit pour ça d'importer le fichier [tests.json](https://raw.githubusercont
 
 Dans les environnements de Postman, importer [environnement.json](https://raw.githubusercontent.com/up-arcan/WebAPI/master/tests/environnement.json), et renseigner les variables.
 
-- `ATHOME_URL` : URL be base du site AtHome (ex: http://dev.arcan.fr/AtHome)
+- `ATHOME_URL` : URL be base du site AtHome (ex: https://dev.arcan.fr/AtHome)
 - `ATHOME_LOGIN` : login
 - `ATHOME_PASSWORD_HASH` : sha256 du mot-de-passe
 - `SEJOUR_ID_EXTERNE` : ID externe d'un séjour (lien AtHome <-> TELEVITALE/GeoSoin)
 - `DATE_DEBUT_SEJOUR` : YYYY-MM-DDTHH:MM:SS (ex: 2017-01-01T08:00:00)
 - `DATE_FIN_SEJOUR` : YYYY-MM-DDTHH:MM:SS (ex: 2017-06-30T08:00:00)
+
+![cfg environnement](https://raw.githubusercontent.com/up-arcan/WebAPI/master/tests/cfg-environnement.png "cfg environnement")
 
 ## III) Lancer les tests
 
