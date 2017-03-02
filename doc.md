@@ -60,7 +60,7 @@ Entité **Adresse** :
 
 Retourne une liste de séjours comprise entre une date de début et de fin.
 
-**/api/Sejour/Sejour/queries/GetSejourParDateQuery**
+**/api/Sejour/Sejour/queries/GetSejoursParDateQuery**
 
 #### Paramètres
 
@@ -196,7 +196,7 @@ Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
 - `SejourIds` : Liste d'ID de séjours *(array)*
 - `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
-- `DateFin` : Date de fin, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DDTHH:MM:SS *(string, optionnel)*
 
 #### Retour
 
