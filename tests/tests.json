@@ -12,7 +12,7 @@
 			"description": "",
 			"item": [
 				{
-					"name": "1.Mobile Login",
+					"name": "1.Auth",
 					"event": [
 						{
 							"listen": "test",
@@ -145,7 +145,7 @@
 							"mode": "raw",
 							"raw": "{\n  \"IdentifiantExterne\": \"{{SEJOUR_ID_EXTERNE}}\"\n}"
 						},
-						"description": ""
+						"description": "Retourne le séjour correspondant à l'ID externe."
 					},
 					"response": []
 				},
@@ -201,7 +201,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetSejourParDateQuery",
+						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetSejoursParDateQuery",
 						"method": "POST",
 						"header": [
 							{
@@ -219,7 +219,7 @@
 							"mode": "raw",
 							"raw": "{\n  \"DateDebut\": \"{{DATE_DEBUT_SEJOUR}}\",\n  \"DateFin\": \"{{DATE_FIN_SEJOUR}}\"\n}"
 						},
-						"description": ""
+						"description": "Retourne une liste de séjours comprise entre les dates données."
 					},
 					"response": []
 				}
@@ -308,7 +308,7 @@
 							"mode": "raw",
 							"raw": "{\n\t\"PatientId\": {{PATIENT_ID}}\n}"
 						},
-						"description": ""
+						"description": "Retourne le patient correspondant à l'ID donné."
 					},
 					"response": []
 				}
@@ -387,7 +387,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "Retourne la liste des types d'intervenants."
 					},
 					"response": []
 				}
@@ -461,7 +461,7 @@
 							"mode": "raw",
 							"raw": "{\n  \"Libelle\": \"API - Creation acte 2\",\n  \"LibelleCourt\": \"api crea acte 2\",\n  \"TypeIntervenantId\": {{TYPE_INTERVENANT_ID}}\n}"
 						},
-						"description": ""
+						"description": "Crée un acte et retourne son ID."
 					},
 					"response": []
 				},
@@ -538,7 +538,7 @@
 							}
 						],
 						"body": {},
-						"description": ""
+						"description": "Retourne la liste des actes disponibles sur AtHome."
 					},
 					"response": []
 				},
@@ -605,7 +605,7 @@
 							"mode": "raw",
 							"raw": "{\n  \"ActeId\": {{ACTE_CREE_ID}}\n}"
 						},
-						"description": ""
+						"description": "Retourne un acte en fonction de l'ID donné."
 					},
 					"response": []
 				}
@@ -704,9 +704,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"SejourIds\": [\n  \t{{SEJOUR_ID}}\n  \t],\n  \"DateDebut\": \"2015-05-23T08:00:00\",\n  \"DateFin\": \"2022-05-28T08:00:00\"\n}"
+							"raw": "{\n  \"SejourIds\": [\n  \t{{SEJOUR_ID}}\n  \t],\n  \"DateDebut\": \"2015-05-23T08:00:00\"\n}"
 						},
-						"description": ""
+						"description": "Retourne une liste de plans de soins associée aux séjours et dates donnés."
 					},
 					"response": []
 				},
@@ -794,7 +794,7 @@
 							"mode": "raw",
 							"raw": "{\n  \"PlanSoinsId\": {{PLAN_SOINS_ID}}\n}"
 						},
-						"description": ""
+						"description": "Retourne le plan de soins correspondant à l'ID donné."
 					},
 					"response": []
 				},
@@ -858,7 +858,7 @@
 							"mode": "raw",
 							"raw": "{\n  \"DateDebut\": \"2020-05-23T09:15:02\",\n  \"DateFin\": \"2020-06-23T09:15:02\",\n  \"TypeIntervenantId\": {{TYPE_INTERVENANT_ID}},\n  \"SejourId\": {{SEJOUR_ID}},\n  \"EtatPlanSoin\": 1,\n  \"Commentaire\": \"un petit com\",\n  \"Lignes\": [\n    {\n      \"Jour\": 0,\n      \"HeureDebut\": \"0:8:30:0\",\n      \"HeureFin\": \"0:9:30:0\",\n      \"Obligatoire\": true,\n      \"ActeIds\": [\n        {{ACTE_CREE_ID}}\n      ]\n    }\n  ]\n}"
 						},
-						"description": ""
+						"description": "Crée un plan de soins."
 					},
 					"response": []
 				},
@@ -920,7 +920,7 @@
 							"mode": "raw",
 							"raw": "{\n  \"PlanSoinId\": {{PLAN_SOINS_CREE_ID}},\n  \"DateDebut\": \"2021-05-23T09:15:02\",\n  \"DateFin\": \"2021-06-23T09:15:02\",\n  \"TypeIntervenantId\": {{TYPE_INTERVENANT_ID}},\n  \"SejourId\": {{SEJOUR_ID}},\n  \"EtatPlanSoin\": 1,\n  \"Commentaire\": \"un petit com MAJ\",\n  \"Lignes\": [\n    {\n      \"Jour\": 0,\n      \"HeureDebut\": \"0:9:30:0\",\n      \"HeureFin\": \"0:10:30:0\",\n      \"Obligatoire\": true,\n      \"ActeIds\": [\n        {{ACTE_CREE_ID}}\n      ]\n    }\n  ]\n}"
 						},
-						"description": ""
+						"description": "Met-à-jour un plan de soins."
 					},
 					"response": []
 				},
@@ -982,7 +982,7 @@
 							"mode": "raw",
 							"raw": "{\n  \"PlanSoinId\": {{PLAN_SOINS_CREE_ID}}\n}"
 						},
-						"description": ""
+						"description": "Supprime le plan de soins correspondant à l'ID donné."
 					},
 					"response": []
 				}
