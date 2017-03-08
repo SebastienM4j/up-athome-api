@@ -1,4 +1,20 @@
+# Authentification
+
+---
+
+Avant de pouvoir utiliser les APIs une authentification est nécéssaire. Pour cela un une **API_KEY** et une **API_SECRET** vous sont fournis.
+
+Appeler **https://auth.arcan.fr/api/ApiLogin/GetAuthCookie?apiKey=API_KEY&apiSecret=API_SECRET&uniqueCode=UNIQUECODE**, avec les paramètres suivants :
+
+- `API_KEY`
+- `API_SECRET`
+- `UNIQUECODE` : disponible sur la page d'authentification d'AtHome (généralement 320XXXX).
+
+Si l'authentification réussie un cookie *ArcanCookieAuth* est renvoyé, il faut alors le réutiliser dans les appels aux APIs.
+
 # Patients
+
+---
 
 ## Obtenir un patient
 
@@ -53,6 +69,8 @@ Entité **Adresse** :
 ---
 
 # Séjours
+
+---
 
 ## Obtenir un séjour
 
@@ -112,6 +130,8 @@ En cas de succès une entité **Sejour** :
 ---
 
 # Plans de soins
+
+---
 
 ## Obtenir une liste d'actes prédéfinis
 
@@ -325,4 +345,3 @@ Supprime le plan de soins correspondant à l'ID donné.
 - `PlanSoinId` : ID du plan de soins *(decimal)*
 
 ### Retour
-
