@@ -1,6 +1,6 @@
 {
   "id": "fccf70b7-f21c-1d91-9623-93e13d91c76f",
-  "name": "Arcan Tests",
+  "name": "Arcan Tests  empty",
   "values": [
     {
       "enabled": true,
@@ -10,13 +10,19 @@
     },
     {
       "enabled": true,
-      "key": "ATHOME_LOGIN",
+      "key": "ATHOME_UNIQUECODE",
       "value": "",
       "type": "text"
     },
     {
       "enabled": true,
-      "key": "ATHOME_PASSWORD_HASH",
+      "key": "ATHOME_APIKEY",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "ATHOME_APISECRET",
       "value": "",
       "type": "text"
     },
@@ -39,8 +45,8 @@
       "type": "text"
     }
   ],
-  "timestamp": 1488271892826,
+  "timestamp": 1488983321394,
   "_postman_variable_scope": "environment",
-  "_postman_exported_at": "2017-02-28T09:14:15.219Z",
-  "_postman_exported_using": "Postman/4.10.2"
+  "_postman_exported_at": "2017-03-08T15:59:55.843Z",
+  "_postman_exported_using": "Postman/4.10.3"
 }
