@@ -18,7 +18,7 @@ Dans les environnements de Postman, importer [environnement.json](https://raw.gi
 - `DATE_DEBUT_SEJOUR` : YYYY-MM-DDTHH:MM:SS (ex: 2017-01-01T08:00:00)
 - `DATE_FIN_SEJOUR` : YYYY-MM-DDTHH:MM:SS (ex: 2017-06-30T08:00:00)
 
-![cfg environnement](https://raw.githubusercontent.com/up-arcan/WebAPI/master/tests/cfg-environnement.png "cfg environnement")
+![cfg environnement](https://raw.githubusercontent.com/up-arcan/WebAPI/master/tests/cfg-env.png "cfg environnement")
 
 ## III) Lancer les tests
 
