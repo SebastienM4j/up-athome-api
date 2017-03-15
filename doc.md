@@ -2,15 +2,25 @@
 
 ---
 
-Avant de pouvoir utiliser les APIs une authentification est nécéssaire. Pour cela un une **API_KEY** et une **API_SECRET** vous sont fournis.
+Avant de pouvoir utiliser les APIs une authentification est nécéssaire, elle se déroule en 2 étapes. Pour cela une **API_KEY** et une **API_SECRET** vous sont fournis.
 
-Appeler **https://auth.arcan.fr/api/ApiLogin/GetAuthCookie?apiKey=API_KEY&apiSecret=API_SECRET&uniqueCode=UNIQUECODE**, avec les paramètres suivants :
+## 1) Obtenir l'URL du site AtHome et une réponse SAML
+
+Appeler **https://auth.arcan.fr/api/ApiLogin/GetAuthData?apiKey=ATHOME_APIKEY&apiSecret=ATHOME_APISECRET&uniqueCode=ATHOME_UNIQUECODE** avec les paramètres suivants :
 
 - `API_KEY`
 - `API_SECRET`
 - `UNIQUECODE` : disponible sur la page d'authentification d'AtHome (généralement 320XXXX).
 
-Si l'authentification réussie un cookie *ArcanCookieAuth* est renvoyé, il faut alors le réutiliser dans les appels aux APIs.
+Si l'authentification réussie, la réponse contient une **URL** et une réponse **SAML**.
+
+## 2) S'authentifier sur le site AtHome
+
+Pour cela il faut appeler l'URL obtenue à l'étape précédente et passer le SAML en *POST* au format *JSON*, exemple :
+
+**https://dev.arcan.fr/api/Authentification/Login**
+
+Si l'authentification réussie un cookie **ArcanCookieAuth** est renvoyé, il faut alors le réutiliser dans les appels aux APIs.
 
 # Patients
 
@@ -345,3 +355,35 @@ Supprime le plan de soins correspondant à l'ID donné.
 - `PlanSoinId` : ID du plan de soins *(decimal)*
 
 ### Retour
+
+---
+
+# Visites salariés
+
+---
+
+## Créer une visite
+
+Crée une visite.
+
+**/api/Sejour/VisiteSalarie/commands/CreerVisiteSalarieCommand/Execute**
+
+### Paramètres
+
+- `SejourId` : ID du séjour *(decimal)*
+- `SalarieId` : ID du salarié *(decimal)*
+- `Date` : Date de la visite, YYYY-MM-DDTHH:MM:SS *(string)*
+- `HeureDebut` : Heure de début de la visite, D:HH:MM:SS *(string)*
+- `TempsChevet` : Temps de la visite *(int)*
+- `TempsFormation` : Temps de formation *(int)*
+- `TempsDeplacement` : Durée de déplacement *(int)*
+- `NombreKilometres` : *(int)*
+- `Frais` : *(decimal)*
+- `Commentaire` : Commentaire *(string)*
+- `DateCreation` : Date de création de la visite, YYYY-MM-DDTHH:MM:SS *(string)*
+- `CreateurId` : ID du créateur de la visite *(decimal)*
+- `EtatVisite` : 2 = A valider, 4 = Annulée, 6 = Planifiée, *(enum int)*
+- `ActeIds` : Liste d'ID d'actes *(array d'int)*
+
+### Retour
+
