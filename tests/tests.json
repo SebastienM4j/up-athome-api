@@ -12,7 +12,7 @@
 			"description": "",
 			"item": [
 				{
-					"name": "1.Auth",
+					"name": "1.Auth auth.arcan.fr",
 					"event": [
 						{
 							"listen": "test",
@@ -26,27 +26,38 @@
 									"}",
 									"tests[\"Request OK\"] = true;",
 									"",
-									"var responseJSON;",
 									"try",
 									"{",
-									"    responseJSON = JSON.parse(responseBody);",
+									"    var responseJSON = JSON.parse(responseBody);",
+									"    var entity = responseJSON.Entity;",
+									"    console.log(responseJSON);",
+									"    if (entity.Url !== null && entity.Url.length > 0)",
+									"    {",
+									"        tests[\"AtHome URL\"] = true;",
+									"        postman.setEnvironmentVariable(\"ARCAN_ATHOME_URL\", entity.Url);",
+									"    }",
+									"    else",
+									"    {",
+									"        tests[\"AtHome URL\"] = false;",
+									"        postman.setEnvironmentVariable(\"ARCAN_ATHOME_URL\", \"\");",
+									"    }",
+									"    ",
+									"    if (entity.Saml !== null && entity.Saml.length > 0)",
+									"    {",
+									"        tests[\"SAML\"] = true;",
+									"        postman.setEnvironmentVariable(\"ARCAN_SAML\", entity.Saml);",
+									"    }",
+									"    else",
+									"    {",
+									"        tests[\"SAML\"] = false;",
+									"        postman.setEnvironmentVariable(\"ARCAN_SAML\", \"\");",
+									"    }",
 									"}",
 									"catch (e)",
 									"{",
 									"    tests[\"Response OK\"] = false;",
-									"    return;",
-									"}",
-									"",
-									"var arcanCookie = postman.getResponseCookie(\"ArcanCookieAuth\").value;",
-									"if (arcanCookie !== null)",
-									"{",
-									"    tests[\"Auth OK\"] = true;",
-									"    postman.setEnvironmentVariable(\"ARCAN_COOKIE\", arcanCookie);",
-									"}",
-									"else",
-									"{",
-									"    tests[\"Auth OK\"] = false;",
 									"    postman.setEnvironmentVariable(\"ARCAN_COOKIE\", \"\");",
+									"    return;",
 									"}",
 									""
 								]
@@ -54,7 +65,61 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/Services/Authentication/LoginV2",
+						"url": "{{ATHOME_AUTH_URL}}api/ApiLogin/GetAuthData?apiKey={{ATHOME_APIKEY}}&apiSecret={{ATHOME_APISECRET}}&uniqueCode={{ATHOME_UNIQUECODE}}",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Username\": \"{{ATHOME_LOGIN}}\",\n\t\"Password\": \"{{ATHOME_PASSWORD_HASH}}\"\n}"
+						},
+						"description": "Se connecte à AtHome et récupère le cookie d'auth."
+					},
+					"response": []
+				},
+				{
+					"name": "2.Auth AtHome",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"try",
+									"{",
+									"    var responseJSON = JSON.parse(responseBody);",
+									"    var entity = responseJSON.Entity;",
+									"    console.log(responseJSON);",
+									"    if (entity.Value !== null && entity.Value.length > 0)",
+									"    {",
+									"        tests[\"ArcanCookieAuth\"] = true;",
+									"        postman.setEnvironmentVariable(\"ARCAN_COOKIE\", entity.Value);",
+									"    }",
+									"    else",
+									"    {",
+									"        tests[\"ArcanCookieAuth\"] = false;",
+									"        postman.setEnvironmentVariable(\"ARCAN_COOKIE\", \"\");",
+									"    }",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    postman.setEnvironmentVariable(\"ARCAN_COOKIE\", \"\");",
+									"    return;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ARCAN_ATHOME_URL}}api/Authentification/Login",
 						"method": "POST",
 						"header": [
 							{
@@ -65,7 +130,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"Username\": \"{{ATHOME_LOGIN}}\",\n\t\"Password\": \"{{ATHOME_PASSWORD_HASH}}\",\n\t\"AppVersion\": \"4.13\"\n}"
+							"raw": "{\n\t\"Saml\": \"{{ARCAN_SAML}}\"\n}"
 						},
 						"description": "Se connecte à AtHome et récupère le cookie d'auth."
 					},
@@ -127,7 +192,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetSejourParIdExterneQuery ",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/Sejour/queries/GetSejourParIdExterneQuery ",
 						"method": "POST",
 						"header": [
 							{
@@ -201,7 +266,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetSejoursParDateQuery",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/Sejour/queries/GetSejoursParDateQuery",
 						"method": "POST",
 						"header": [
 							{
@@ -290,7 +355,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Patient/Patient/queries/GetPatientParIdQuery",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Patient/Patient/queries/GetPatientParIdQuery",
 						"method": "POST",
 						"header": [
 							{
@@ -372,7 +437,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetTypesIntervenantsQuery",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/Sejour/queries/GetTypesIntervenantsQuery",
 						"method": "GET",
 						"header": [
 							{
@@ -443,7 +508,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/Acte/commands/CreerActeCommand/Execute",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/Acte/commands/CreerActeCommand/Execute",
 						"method": "POST",
 						"header": [
 							{
@@ -523,7 +588,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetActesQuery",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/Sejour/queries/GetActesQuery",
 						"method": "GET",
 						"header": [
 							{
@@ -587,7 +652,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/Sejour/queries/GetActeParIdQuery",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/Sejour/queries/GetActeParIdQuery",
 						"method": "POST",
 						"header": [
 							{
@@ -615,6 +680,130 @@
 			"name": "5.Plans de Soins",
 			"description": "",
 			"item": [
+				{
+					"name": "0.Creer Visite Salarie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/VisiteSalarie/commands/CreerVisiteSalarieCommand/Execute",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"SejourId\": {{SEJOUR_ID}},\n  \"Date\": \"2020-06-23T09:15:02\",\n  \"HeureDebut\": \"0:8:30:0\",\n  \"TempsChevet\": 60,\n  \"DateCreation\": \"2020-06-23T09:15:02\",\n  \"Commentaire\": \"un petit com\",\n  \"EtatVisite\": 6,\n  \"CreateurId\": 0,\n  \"Actes\": [\n  \t{{ACTE_CREE_ID}}\n  ]\n}"
+						},
+						"description": "Crée un plan de soins."
+					},
+					"response": []
+				},
+				{
+					"name": "0.Creer Ligne Soins Ponctuelle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseCode.code != 200)",
+									"{",
+									"    tests[\"Request OK\"] = false;",
+									"    return;",
+									"}",
+									"tests[\"Request OK\"] = true;",
+									"",
+									"var responseJSON;",
+									"try",
+									"{",
+									"    responseJSON = JSON.parse(responseBody);",
+									"}",
+									"catch (e)",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"    return;",
+									"}",
+									"",
+									"if (responseJSON.Succeeded === true)",
+									"{",
+									"    tests[\"Response OK\"] = true;",
+									"}",
+									"else",
+									"{",
+									"    tests[\"Response OK\"] = false;",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/CreerLigneSoinsSalariePonctuelleCommand/Execute",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Cookie",
+								"value": "ASP.NET_SessionId={{ASPNET}}; ArcanCookieAuth={{ARCAN_COOKIE}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"SejourId\": 30,\n  \"TypeIntervenantId\": 12,\n  \"Date\": \"2017-03-14T16:18:54.227Z\",\n  \"Jour\": 3,\n  \"HeureDebut\": \"0:08:30:00\",\n  \"HeureFin\": \"0:09:30:00\",\n  \"Commentaire\": \"string\",\n  \"ActeIds\": [\n    1\n  ]\n}"
+						},
+						"description": "Crée un plan de soins."
+					},
+					"response": []
+				},
 				{
 					"name": "1.Get Plans Soins Par Sejours Et Dates",
 					"event": [
@@ -688,7 +877,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParSejoursEtDatesQuery",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParSejoursEtDatesQuery",
 						"method": "POST",
 						"header": [
 							{
@@ -776,7 +965,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery",
 						"method": "POST",
 						"header": [
 							{
@@ -840,7 +1029,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSalarieCommand/Execute",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSalarieCommand/Execute",
 						"method": "POST",
 						"header": [
 							{
@@ -902,7 +1091,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute",
 						"method": "POST",
 						"header": [
 							{
@@ -964,7 +1153,7 @@
 						}
 					],
 					"request": {
-						"url": "{{ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/SupprimerPlanSoinCommand/Execute",
+						"url": "{{ARCAN_ATHOME_URL}}/api/Sejour/PlanSoinSalarie/commands/SupprimerPlanSoinCommand/Execute",
 						"method": "POST",
 						"header": [
 							{
