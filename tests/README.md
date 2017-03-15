@@ -10,7 +10,7 @@ Il suffit pour ça d'importer le fichier [tests.json](https://raw.githubusercont
 
 Dans les environnements de Postman, importer [environnement.json](https://raw.githubusercontent.com/up-arcan/WebAPI/master/tests/environnement.json), et renseigner les variables.
 
-- `ATHOME_URL` : URL be base du site AtHome (ex: https://dev.arcan.fr/AtHome)
+- `ATHOME_AUTH_URL` : URL d'auth (ex: https://auth.arcan.fr)
 - `ATHOME_UNIQUECODE` : Disponible sur la page d'authentification d'AtHome (généralement 320XXXX).
 - `ATHOME_APIKEY` : API key
 - `ATHOME_APISECRET` : API secret
