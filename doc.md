@@ -12,7 +12,7 @@ Appeler **https://auth.arcan.fr/api/ApiLogin/GetAuthData?apiKey=ATHOME_APIKEY&ap
 - `API_SECRET`
 - `UNIQUECODE` : disponible sur la page d'authentification d'AtHome (généralement 320XXXX).
 
-Si l'authentification réussie, la réponse contient une **URL** et une réponse **SAML**.
+Si l'authentification réussie, la réponse contient une **URL** et une réponse **SAML**. C'est sur cette URL que les appels d'APIs devront être faits.
 
 ## 2) S'authentifier sur le site AtHome
 
