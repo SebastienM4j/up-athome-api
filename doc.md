@@ -1,15 +1,15 @@
 # Authentification
 
----
+----
 
-Avant de pouvoir utiliser les APIs une authentification est nécéssaire, elle se déroule en 2 étapes. Pour cela une **API_KEY** et une **API_SECRET** vous sont fournis.
+Avant de pouvoir utiliser les APIs une authentification est nécéssaire, elle se déroule en 2 étapes. Pour cela une **APIKEY** et une **APISECRET** vous sont fournis.
 
 ## 1) Obtenir l'URL du site AtHome et une réponse SAML
 
-Appeler **https://auth.arcan.fr/api/ApiLogin/GetAuthData?apiKey=ATHOME_APIKEY&apiSecret=ATHOME_APISECRET&uniqueCode=ATHOME_UNIQUECODE** avec les paramètres suivants :
+Appeler **https://auth.arcan.fr/api/ApiLogin/GetAuthData?apiKey=APIKEY&apiSecret=APISECRET&uniqueCode=UNIQUECODE** avec les paramètres suivants :
 
-- `API_KEY`
-- `API_SECRET`
+- `APIKEY`
+- `APISECRET`
 - `UNIQUECODE` : disponible sur la page d'authentification d'AtHome (généralement 320XXXX).
 
 Si l'authentification réussie, la réponse contient une **URL** et une réponse **SAML**. C'est sur cette URL que les appels d'APIs devront être faits.
@@ -24,7 +24,7 @@ Si l'authentification réussie un cookie **ArcanCookieAuth** est renvoyé, il fa
 
 # Patients
 
----
+----
 
 ## Obtenir un patient
 
@@ -216,7 +216,7 @@ En cas de succès la liste des types d'intervenants définis dans AtHome :
 
 ## Obtenir des plans de soins
 
-### A) Par Sejours ID et Dates
+### A) Par Séjours ID et Dates
 
 Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
@@ -243,8 +243,8 @@ Entité **LignePlanSoins** :
 
 - `LignePlanSoinsId` : ID de la ligne de soins *(decimal)*
 - `Jour` : Entier compris entre 0 et 6. 0 = Dimanche, 1 = Lundi… *(int)*
-- `HeureDebut` : D:HH:MM:SS* (string)*
-- `HeureFin` : D:HH:MM:SS* (string)*
+- `HeureDebut` : D:HH:MM:SS\* (string)\*
+- `HeureFin` : D:HH:MM:SS\* (string)\*
 - `Obligatoire` : *(bool)*
 - `Actes` : Liste des actes _(array d'**Acte**)_
 
@@ -278,8 +278,8 @@ Entité **LignePlanSoins** :
 
 - `LignePlanSoinsId` : ID de la ligne de soins *(decimal)*
 - `Jour` : Entier compris entre 0 et 6. 0 = Dimanche, 1 = Lundi… *(int)*
-- `HeureDebut` : D:HH:MM:SS* (string)*
-- `HeureFin` : D:HH:MM:SS* (string)*
+- `HeureDebut` : D:HH:MM:SS\* (string)\*
+- `HeureFin` : D:HH:MM:SS\* (string)\*
 - `Obligatoire` : *(bool)*
 - `Actes` : Liste des actes _(array d'**Acte**)_
 
@@ -341,8 +341,6 @@ Entité **LignePlanSoins** :
 - `Obligatoire` : *(bool)*
 - `ActeIds` : Liste d'ID d'actes *(array d'int)*
 
-### Retour
-
 
 ## Supprimer un plan de soins
 
@@ -354,36 +352,49 @@ Supprime le plan de soins correspondant à l'ID donné.
 
 - `PlanSoinId` : ID du plan de soins *(decimal)*
 
-### Retour
+## Créer un Passage ponctuel
 
----
-
-# Visites salariés
-
----
-
-## Créer une visite
-
-Crée une visite.
+Crée un passage ponctuel
 
 **/api/Sejour/VisiteSalarie/commands/CreerVisiteSalarieCommand/Execute**
 
 ### Paramètres
 
 - `SejourId` : ID du séjour *(decimal)*
-- `SalarieId` : ID du salarié *(decimal)*
-- `Date` : Date de la visite, YYYY-MM-DDTHH:MM:SS *(string)*
-- `HeureDebut` : Heure de début de la visite, D:HH:MM:SS *(string)*
-- `TempsChevet` : Temps de la visite *(int)*
-- `TempsFormation` : Temps de formation *(int)*
-- `TempsDeplacement` : Durée de déplacement *(int)*
-- `NombreKilometres` : *(int)*
-- `Frais` : *(decimal)*
-- `Commentaire` : Commentaire *(string)*
-- `DateCreation` : Date de création de la visite, YYYY-MM-DDTHH:MM:SS *(string)*
-- `CreateurId` : ID du créateur de la visite *(decimal)*
-- `EtatVisite` : 2 = A valider, 4 = Annulée, 6 = Planifiée, *(enum int)*
+- `TypeIntervenantId` : ID du séjour *(decimal)*
+- `Date` : YYYY-MM-DDTHH:MM:SS *(string)*
+- `HeureDebut` : Heure de début du passage, D:HH:MM:SS *(string)*
+- `HeureFin` : Heure de fin du passage, D:HH:MM:SS *(string)*
+- `Obligatoire` : *(bool)*
+- `Commentaire` : *(string)*
 - `ActeIds` : Liste d'ID d'actes *(array d'int)*
 
 ### Retour
 
+Si la création réussie, l'ID du passage créé.
+
+## Mettre-à-jour un Passage ponctuel
+
+Met-à-jour le passage ponctuel spécifié.
+
+**/api/Sejour/PassagePonctuel/commands/MettreAJourPassagePonctuelCommand/Execute**
+
+### Paramètres
+
+- `PassagePonctuelId` : ID du passage *(decimal)*
+- `Date` : YYYY-MM-DDTHH:MM:SS *(string)*
+- `HeureDebut` : Heure de début du passage, D:HH:MM:SS *(string)*
+- `HeureFin` : Heure de fin du passage, D:HH:MM:SS *(string)*
+- `Obligatoire` : *(bool)*
+- `Commentaire` : *(string)*
+- `ActeIds` : Liste d'ID d'actes *(array d'int)*
+
+## Supprimer un Passage ponctuel
+
+Supprime le passage spécifié.
+
+**/api/Sejour/PassagePonctuel/commands/SupprimerPassagePonctuelCommand/Execute**
+
+### Paramètres
+
+- `PassagePonctuelId` : ID du passage *(decimal)*
