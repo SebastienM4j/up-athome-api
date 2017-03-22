@@ -3,10 +3,10 @@ using Arcan.AtHome.API.Queries;
 
 namespace Arcan.AtHome.API.Tests
 {
-    public class TypesSalariesTests
+    public class FonctionsTests
     {
         [Fact]
-        public void GetTypesSalaries()
+        public void GetFonctions()
         {
             AuthentificationQuery authQuery = new AuthentificationQuery();
 
@@ -19,17 +19,16 @@ namespace Arcan.AtHome.API.Tests
 
             AuthentificationQueryResult authResult = authQuery.Query(arg);
 
-            GetTypesSalariesQuery query = new GetTypesSalariesQuery(authResult.AtHomeUrl, authResult.Cookie);
+            GetFonctionQuery query = new GetFonctionQuery(authResult.AtHomeUrl, authResult.Cookie);
 
-            GetTypesSalariesQueryResult[] result = query.Query();
+            GetFonctionQueryResult[] result = query.Query();
 
             Assert.NotNull(result);
 
-            foreach (GetTypesSalariesQueryResult typeSal in result)
+            foreach (GetFonctionQueryResult civilite in result)
             {
-                Assert.True(typeSal.Id != default(decimal));
-                Assert.False(string.IsNullOrWhiteSpace(typeSal.Libelle));
-                Assert.False(string.IsNullOrWhiteSpace(typeSal.Color));
+                Assert.True(civilite.Id != default(decimal));
+                Assert.False(string.IsNullOrWhiteSpace(civilite.Libelle));
             }
         }
     }

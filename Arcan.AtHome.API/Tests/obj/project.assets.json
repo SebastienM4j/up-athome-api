@@ -2921,17 +2921,17 @@
       },
       "Client/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
+        "framework": ".NETCoreApp,Version=v1.1",
         "dependencies": {
-          "NETStandard.Library": "1.6.1",
+          "Microsoft.NETCore.App": "1.1.1",
           "Newtonsoft.Json": "9.0.1",
           "System.Runtime.Serialization.Json": "4.3.0"
         },
         "compile": {
-          "bin/placeholder/netstandard1.4/Client.dll": {}
+          "bin/placeholder/netcoreapp1.1/Client.dll": {}
         },
         "runtime": {
-          "bin/placeholder/netstandard1.4/Client.dll": {}
+          "bin/placeholder/netcoreapp1.1/Client.dll": {}
         }
       }
     }
@@ -8585,22 +8585,22 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/Tests.csproj",
+      "projectUniqueName": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Tests/Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/Tests.csproj",
-      "outputPath": "/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/obj/",
+      "projectPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Tests/Tests.csproj",
+      "outputPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Tests/obj/",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/Tests.dll": "/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/placeholder/netcoreapp1.1/Tests.dll"
+        "lib/netcoreapp1.1/Tests.dll": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Tests/bin/placeholder/netcoreapp1.1/Tests.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "/Users/benjamin/Desktop/Arcan.AtHome.API/Client/Client.csproj": {
-              "projectPath": "/Users/benjamin/Desktop/Arcan.AtHome.API/Client/Client.csproj"
+            "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/Client.csproj": {
+              "projectPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/Client.csproj"
             }
           }
         }

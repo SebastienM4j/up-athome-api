@@ -4,3 +4,9 @@
 /Users/benjamin/Desktop/Arcan.AtHome.API/Client/obj/Debug/netcoreapp1.1/Client.AssemblyInfo.cs
 /Users/benjamin/Desktop/Arcan.AtHome.API/Client/obj/Debug/netcoreapp1.1/Client.dll
 /Users/benjamin/Desktop/Arcan.AtHome.API/Client/obj/Debug/netcoreapp1.1/Client.pdb
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/bin/Debug/netcoreapp1.1/Client.deps.json
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/bin/Debug/netcoreapp1.1/Client.dll
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/bin/Debug/netcoreapp1.1/Client.pdb
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/obj/Debug/netcoreapp1.1/Client.AssemblyInfo.cs
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/obj/Debug/netcoreapp1.1/Client.dll
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/obj/Debug/netcoreapp1.1/Client.pdb

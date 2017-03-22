@@ -7441,16 +7441,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/benjamin/Desktop/Arcan.AtHome.API/Client/Client.csproj",
+      "projectUniqueName": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/Client.csproj",
       "projectName": "Client",
-      "projectPath": "/Users/benjamin/Desktop/Arcan.AtHome.API/Client/Client.csproj",
-      "outputPath": "/Users/benjamin/Desktop/Arcan.AtHome.API/Client/obj/",
+      "projectPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/Client.csproj",
+      "outputPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/obj/",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/Client.dll": "/Users/benjamin/Desktop/Arcan.AtHome.API/Client/bin/placeholder/netcoreapp1.1/Client.dll"
+        "lib/netcoreapp1.1/Client.dll": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API/Client/bin/placeholder/netcoreapp1.1/Client.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {
