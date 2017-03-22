@@ -1,2 +1,0 @@
-/Users/benjamin/Desktop/Arcan.AtHome.API/Client/bin/Debug/netstandard1.4/Client.deps.json
-/Users/benjamin/Desktop/Arcan.AtHome.API/Client/obj/Debug/netstandard1.4/Client.AssemblyInfo.cs
