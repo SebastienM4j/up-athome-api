@@ -1,0 +1,13 @@
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/xunit.runner.utility.netstandard15.dll
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/xunit.runner.reporters.netstandard15.dll
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/Tests.deps.json
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/Tests.runtimeconfig.json
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/Tests.runtimeconfig.dev.json
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/Tests.dll
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/Tests.pdb
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/Client.dll
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/bin/Debug/netcoreapp1.1/Client.pdb
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/obj/Debug/netcoreapp1.1/Tests.AssemblyInfo.cs
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/obj/Debug/netcoreapp1.1/Tests.dll
+/Users/benjamin/Desktop/Arcan.AtHome.API/Tests/obj/Debug/netcoreapp1.1/Tests.pdb
