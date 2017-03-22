@@ -1,6 +1,6 @@
 # Authentification
 
-----
+---- 
 
 Avant de pouvoir utiliser les APIs une authentification est nécéssaire, elle se déroule en 2 étapes. Pour cela une **APIKEY** et une **APISECRET** vous sont fournis.
 
@@ -24,7 +24,7 @@ Si l'authentification réussie un cookie **ArcanCookieAuth** est renvoyé, il fa
 
 # Patients
 
-----
+---- 
 
 ## Obtenir un patient
 
@@ -76,11 +76,11 @@ Entité **Adresse** :
 - `Escalier` : Y a t-il un escalier *(bool)*
 - `Ascenseur` : Y a t-il un ascenseur *(bool)*
 
----
+---- 
 
 # Séjours
 
----
+---- 
 
 ## Obtenir un séjour
 
@@ -137,11 +137,11 @@ En cas de succès une entité **Sejour** :
 - `UniteServiceId` : ID de l'unité de service *(decimal)*
 - `UniteServiceNom` : Nom de l'unité de service *(string)*
 
----
+---- 
 
 # Plans de soins
 
----
+---- 
 
 ## Obtenir une liste d'actes prédéfinis
 
@@ -356,7 +356,7 @@ Supprime le plan de soins correspondant à l'ID donné.
 
 Crée un passage ponctuel
 
-**/api/Sejour/VisiteSalarie/commands/CreerVisiteSalarieCommand/Execute**
+**/api/Sejour/PassagePonctuel/commands/CreerPassagePonctuelCommand/Execute**
 
 ### Paramètres
 
@@ -398,3 +398,19 @@ Supprime le passage spécifié.
 ### Paramètres
 
 - `PassagePonctuelId` : ID du passage *(decimal)*
+
+## Obtenir un passage ponctuel
+
+Retourne une liste de passages ponctuels.
+
+**/api/Sejour/PassagePonctuel/queries/GetPassagePonctuelParSejourEtDatesQuery**
+
+### Paramètres
+
+- `SejourId` : ID du séjour *(decimal)*
+- `DateDebut` : Date de début du passage, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin du passage, YYYY-MM-DDTHH:MM:SS *(string)*
+
+### Retour
+
+En cas de succès la liste des passages associés au séjour.
