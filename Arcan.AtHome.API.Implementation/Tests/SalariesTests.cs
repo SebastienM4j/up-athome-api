@@ -1,5 +1,6 @@
 using Xunit;
 using Arcan.AtHome.API.Implementation.Queries;
+using Arcan.AtHome.API.Implementation.Commands;
 using Arcan.AtHome.API.Implementation.Infrastructure;
 
 namespace Arcan.AtHome.API.Implementation.Tests

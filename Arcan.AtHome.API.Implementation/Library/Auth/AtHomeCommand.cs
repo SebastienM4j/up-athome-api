@@ -1,11 +1,12 @@
 using System;
 using System.Net;
 using System.Net.Http;
+using Arcan.AtHome.API.Implementation.Queries;
 using Arcan.AtHome.API.Implementation.Infrastructure;
 
-namespace Arcan.AtHome.API.Implementation.Queries
+namespace Arcan.AtHome.API.Implementation.Commands
 {
-    public abstract class AtHomeQuery
+    public abstract class AtHomeCommand
     {
         protected string Cookie;
         protected string AtHomeUrl;
@@ -13,18 +14,18 @@ namespace Arcan.AtHome.API.Implementation.Queries
         protected string ApiKey;
         protected string ApiSecret;
 
-        public AtHomeQuery()
+        public AtHomeCommand()
         {
         }
 
-        public AtHomeQuery(string uniqueCode, string apiKey, string apiSecret)
+        public AtHomeCommand(string uniqueCode, string apiKey, string apiSecret)
         {
             this.UniqueCode = uniqueCode;
             this.ApiKey = apiKey;
             this.ApiSecret = apiSecret;
         }
 
-        public AtHomeQuery(string atHomeUrl, string cookie)
+        public AtHomeCommand(string atHomeUrl, string cookie)
         {
             this.AtHomeUrl = atHomeUrl;
             this.Cookie = cookie;
@@ -83,37 +84,39 @@ namespace Arcan.AtHome.API.Implementation.Queries
         }
     }
 
-    public abstract class AtHomeQuery<TResult> : AtHomeQuery, IQuery<TResult>
+    public abstract class AtHomeCommand<TResult> : AtHomeCommand, ICommandWithResult<TResult>
     {
-        public AtHomeQuery() : base()
+        public AtHomeCommand() : base()
         {
         }
 
-        public AtHomeQuery(string uniqueCode, string apiKey, string apiSecret) : base(uniqueCode, apiKey, apiSecret)
+        public AtHomeCommand(string uniqueCode, string apiKey, string apiSecret) : base(uniqueCode, apiKey, apiSecret)
         {
         }
 
-        public AtHomeQuery(string atHomeUrl, string cookie) : base(atHomeUrl, cookie)
+        public AtHomeCommand(string atHomeUrl, string cookie) : base(atHomeUrl, cookie)
         {
         }
 
-        public abstract TResult Query();
+        public abstract CanExecuteResult CanExecute();
+        public abstract ActionResult<TResult> Execute();
     }
 
-    public abstract class AtHomeQuery<TArgs, TResult> : AtHomeQuery, IQuery<TArgs, TResult>
+    public abstract class AtHomeCommand<TArgs, TResult> : AtHomeCommand, ICommandWithResult<TArgs, TResult>
     {
-        public AtHomeQuery() : base()
+        public AtHomeCommand() : base()
         {
         }
 
-        public AtHomeQuery(string uniqueCode, string apiKey, string apiSecret) : base(uniqueCode, apiKey, apiSecret)
+        public AtHomeCommand(string uniqueCode, string apiKey, string apiSecret) : base(uniqueCode, apiKey, apiSecret)
         {
         }
 
-        public AtHomeQuery(string atHomeUrl, string cookie) : base(atHomeUrl, cookie)
+        public AtHomeCommand(string atHomeUrl, string cookie) : base(atHomeUrl, cookie)
         {
         }
 
-        public abstract TResult Query(TArgs arg);
+        public abstract CanExecuteResult CanExecute(TArgs args);
+        public abstract ActionResult<TResult> Execute(TArgs args);
     }
 }

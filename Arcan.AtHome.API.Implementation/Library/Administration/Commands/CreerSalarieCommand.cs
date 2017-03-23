@@ -5,7 +5,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Arcan.AtHome.API.Implementation.Infrastructure;
 
-namespace Arcan.AtHome.API.Implementation.Queries
+namespace Arcan.AtHome.API.Implementation.Commands
 {
     public enum SexeIds
     {
@@ -45,30 +45,27 @@ namespace Arcan.AtHome.API.Implementation.Queries
         public decimal UserId { get; internal set; }
     }
 
-    public class CreerSalarieCommand : ICommandWithResult<CreerSalarieCommandArg, CreerSalarieCommandResult>
+    public class CreerSalarieCommand : AtHomeCommand<CreerSalarieCommandArg, CreerSalarieCommandResult>
     {
-        public string AtHomeUrl { get; set; }
-        public string Cookie { get; set; }
-        public CreerSalarieCommand(string atHomeUrl, string cookie)
+        public CreerSalarieCommand(string atHomeUrl, string cookie) : base(atHomeUrl, cookie)
         {
-            this.AtHomeUrl = atHomeUrl;
-            this.Cookie = cookie;
         }
 
-        public CanExecuteResult CanExecute(CreerSalarieCommandArg arg)
+        public override CanExecuteResult CanExecute(CreerSalarieCommandArg arg)
         {
             return new CanExecuteResult(true);
         }
 
-        public ActionResult<CreerSalarieCommandResult> Execute(CreerSalarieCommandArg arg)
+        public override ActionResult<CreerSalarieCommandResult> Execute(CreerSalarieCommandArg arg)
         {
             CanExecuteResult canExecuteResult = this.CanExecute(arg);
             if (canExecuteResult.CanExecute == false)
                 return new ActionResult<CreerSalarieCommandResult>(false, null, canExecuteResult.Messages);
 
-            HttpClient client = new HttpClient();
+            HttpClient client = GetRESTClient();
+            if (client == null)
+                return null;
 
-            client.DefaultRequestHeaders.TryAddWithoutValidation("Cookie", "ArcanCookieAuth=" + Cookie);
             StringContent body = new StringContent(JsonConvert.SerializeObject(arg), Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = client.PostAsync(string.Format("{0}api/Administration/Salarie/commands/CreerSalarieCommand/Execute", AtHomeUrl), body).Result;
