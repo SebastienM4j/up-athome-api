@@ -12,6 +12,7 @@
 *.log
 *.sql
 *.sqlite
+*.cache
 
 # OS generated files #
 ######################

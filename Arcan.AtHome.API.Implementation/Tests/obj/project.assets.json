@@ -8583,22 +8583,22 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Tests/Tests.csproj",
+      "projectUniqueName": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Tests/Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Tests/Tests.csproj",
-      "outputPath": "/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Tests/obj/",
+      "projectPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Tests/Tests.csproj",
+      "outputPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Tests/obj/",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/Tests.dll": "/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Tests/bin/placeholder/netcoreapp1.1/Tests.dll"
+        "lib/netcoreapp1.1/Tests.dll": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Tests/bin/placeholder/netcoreapp1.1/Tests.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Library/Library.csproj": {
-              "projectPath": "/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Library/Library.csproj"
+            "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/Library.csproj": {
+              "projectPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/Library.csproj"
             }
           }
         }
