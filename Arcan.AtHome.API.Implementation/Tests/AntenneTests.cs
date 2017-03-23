@@ -31,5 +31,13 @@ namespace Arcan.AtHome.API.Implementation.Tests
                 Assert.False(string.IsNullOrWhiteSpace(antenne.RaisonSociale));
             }
         }
+
+        [Fact]
+        public void GetAntennes2()
+        {
+            GetAntenneQueryResult[] result = new AtHomeClientFactory("9999998", "tibo", "tibo").Create<GetAntenneQueryResult[]>(Urls.GetAntennes).Execute();
+
+            Assert.NotNull(result);
+        }
     }
 }
