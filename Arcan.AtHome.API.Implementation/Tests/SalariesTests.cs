@@ -26,21 +26,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void CreerSalarie()
         {
-            AuthentificationQuery authQuery = new AuthentificationQuery();
-
-            AuthentificationQueryArg arg = new AuthentificationQueryArg()
-            {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
-            };
-
-            AuthentificationQueryResult authResult = authQuery.Query(arg);
-
-            CreerSalarieCommand command = new CreerSalarieCommand(authResult.AtHomeUrl, authResult.Cookie);
-
-            ActionResult<CreerSalarieCommandResult> result = command.Execute(new CreerSalarieCommandArg()
-            {
+            ActionResult<CreerSalarieCommandResult> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<CreerSalarieCommandResult>, CreerSalarieCommandArg>(Urls.CreerSalarie).Execute(new CreerSalarieCommandArg(){
                 Matricule = "123456789",
                 CiviliteId = 1,
                 Nom = "SalarieNOM",

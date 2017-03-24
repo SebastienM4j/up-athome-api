@@ -20,6 +20,8 @@ namespace Arcan.AtHome.API.Implementation.Queries
         public const string GetSejourParIdExterne = "api/Sejour/Sejour/queries/GetSejourParIdExterneQuery";
         public const string GetSejoursParDate = "api/Sejour/Sejour/queries/GetSejoursParDateQuery";
         public const string GetTypesIntervenants = "api/Sejour/Sejour/queries/GetTypesIntervenantsQuery";
+
+        public const string CreerSalarie = "api/Administration/Salarie/commands/CreerSalarieCommand/Execute";
     }
 
     public class AtHomeClientFactory
