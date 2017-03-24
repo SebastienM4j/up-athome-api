@@ -1,8 +1,4 @@
 using System;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using Newtonsoft.Json;
 
 namespace Arcan.AtHome.API.Implementation.Queries
 {
@@ -36,29 +32,5 @@ namespace Arcan.AtHome.API.Implementation.Queries
         public string TelephonePortable { get; set; }
         public string NumeroPoste { get; set; }
         public decimal? VilleId { get; set; }
-    }
-
-    public class GetSalarieParIdQuery : AtHomeQuery<GetSalarieParIdQueryArg, GetSalarieParIdQueryResult[]>
-    {
-        public GetSalarieParIdQuery(string atHomeUrl, string cookie) : base(atHomeUrl, cookie)
-        {
-        }
-        public override GetSalarieParIdQueryResult[] Query(GetSalarieParIdQueryArg arg)
-        {
-            HttpClient client = GetRESTClient();
-            if (client == null)
-                return null;
-
-            StringContent body = new StringContent(JsonConvert.SerializeObject(arg), Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = client.PostAsync(string.Format("{0}api/Administration/Salarie/queries/GetSalarieParIdQuery", AtHomeUrl), body).Result;
-            if (response.StatusCode != HttpStatusCode.OK)
-                return null;
-
-            string responseBody = response.Content.ReadAsStringAsync().Result;
-            GetSalarieParIdQueryResult[] result = JsonConvert.DeserializeObject<GetSalarieParIdQueryResult[]>(responseBody);
-
-            return result;
-        }
     }
 }

@@ -1,6 +1,7 @@
 using Xunit;
 using Arcan.AtHome.API.Implementation.Queries;
 using System;
+using Arcan.AtHome.API.Implementation.Infrastructure;
 
 namespace Arcan.AtHome.API.Implementation.Tests
 {
@@ -9,28 +10,15 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetPlansSoinsParSejourEtDates()
         {
-            AuthentificationQuery authQuery = new AuthentificationQuery();
-
-            AuthentificationQueryArg arg = new AuthentificationQueryArg()
-            {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
-            };
-
-            AuthentificationQueryResult authResult = authQuery.Query(arg);
-
-            GetPlansSoinsParSejoursEtDatesQuery query = new GetPlansSoinsParSejoursEtDatesQuery(authResult.AtHomeUrl, authResult.Cookie);
-
-            GetPlansSoinsParSejoursEtDatesQueryResult[] result = query.Query(new GetPlansSoinsParSejoursEtDatesQueryArg()
-            {
+            ActionResult<GetPlansSoinsParSejoursEtDatesQueryResult[]> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetPlansSoinsParSejoursEtDatesQueryResult[]>, GetPlansSoinsParSejoursEtDatesQueryArg>(Urls.GetPlansSoinsParSejoursEtDates).Execute(new GetPlansSoinsParSejoursEtDatesQueryArg(){
                 SejourIds = new decimal[0],
                 DateDebut = new DateTime(2017, 1, 1),
             });
 
             Assert.NotNull(result);
+            Assert.True(result.Succeeded);
 
-            foreach (GetPlansSoinsParSejoursEtDatesQueryResult ps in result)
+            foreach (GetPlansSoinsParSejoursEtDatesQueryResult ps in result.Entity)
             {
                 Assert.True(ps.PlanSoinsId != default(decimal));
                 Assert.True(ps.SejourId != default(decimal));
@@ -53,32 +41,19 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetPlansSoinsParId()
         {
-            AuthentificationQuery authQuery = new AuthentificationQuery();
-
-            AuthentificationQueryArg arg = new AuthentificationQueryArg()
-            {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
-            };
-
-            AuthentificationQueryResult authResult = authQuery.Query(arg);
-
-            GetPlansSoinsParIdQuery query = new GetPlansSoinsParIdQuery(authResult.AtHomeUrl, authResult.Cookie);
-
-            GetPlansSoinsParIdQueryResult result = query.Query(new GetPlansSoinsParIdQueryArg()
-            {
+            ActionResult<GetPlansSoinsParIdQueryResult> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetPlansSoinsParIdQueryResult>, GetPlansSoinsParIdQueryArg>(Urls.GetPlansSoinsParId).Execute(new GetPlansSoinsParIdQueryArg(){
                 PlanSoinsId = 3294,
             });
 
             Assert.NotNull(result);
+            Assert.True(result.Succeeded);
 
-            Assert.True(result.PlanSoinsId != default(decimal));
-            Assert.True(result.SejourId != default(decimal));
-            Assert.True(result.DateDebut.HasValue);
-            Assert.True(result.TypeIntervenantId != default(decimal));
+            Assert.True(result.Entity.PlanSoinsId != default(decimal));
+            Assert.True(result.Entity.SejourId != default(decimal));
+            Assert.True(result.Entity.DateDebut.HasValue);
+            Assert.True(result.Entity.TypeIntervenantId != default(decimal));
 
-            foreach (LignePlanSoins ligne in result.Lignes)
+            foreach (LignePlanSoins ligne in result.Entity.Lignes)
             {
                 Assert.True(ligne.LignePlanSoinsId != default(decimal));
 

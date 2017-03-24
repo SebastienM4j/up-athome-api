@@ -8,20 +8,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetFonctions()
         {
-            AuthentificationQuery authQuery = new AuthentificationQuery();
-
-            AuthentificationQueryArg arg = new AuthentificationQueryArg()
-            {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
-            };
-
-            AuthentificationQueryResult authResult = authQuery.Query(arg);
-
-            GetFonctionQuery query = new GetFonctionQuery(authResult.AtHomeUrl, authResult.Cookie);
-
-            GetFonctionQueryResult[] result = query.Query();
+            GetFonctionQueryResult[] result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<GetFonctionQueryResult[]>(Urls.GetFonction).Execute();
 
             Assert.NotNull(result);
 

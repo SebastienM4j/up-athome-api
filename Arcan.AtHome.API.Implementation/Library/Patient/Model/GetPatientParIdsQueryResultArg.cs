@@ -1,9 +1,4 @@
 using System;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using Newtonsoft.Json;
-using Arcan.AtHome.API.Implementation.Infrastructure;
 
 namespace Arcan.AtHome.API.Implementation.Queries
 {
@@ -50,32 +45,6 @@ namespace Arcan.AtHome.API.Implementation.Queries
             public string Etage { get; set; }
             public bool Escalier { get; set; }
             public bool Ascenseur { get; set; }
-        }
-    }
-
-    public class GetPatientParIdsQuery : AtHomeQuery<GetPatientParIdsQueryArg, GetPatientParIdsQueryResult[]>
-    {
-        public GetPatientParIdsQuery(string atHomeUrl, string cookie) : base(atHomeUrl, cookie)
-        {
-        }
-        public override GetPatientParIdsQueryResult[] Query(GetPatientParIdsQueryArg arg)
-        {
-            HttpClient client = GetRESTClient();
-            if (client == null)
-                return null;
-
-            StringContent body = new StringContent(JsonConvert.SerializeObject(arg), Encoding.UTF8, "application/json");
-
-            HttpResponseMessage response = client.PostAsync(string.Format("{0}api/Patient/Patient/queries/GetPatientParIdsQuery", AtHomeUrl), body).Result;
-            if (response.StatusCode != HttpStatusCode.OK)
-                return null;
-
-            string responseBody = response.Content.ReadAsStringAsync().Result;
-            ActionResult<GetPatientParIdsQueryResult[]> result = JsonConvert.DeserializeObject<ActionResult<GetPatientParIdsQueryResult[]>>(responseBody);
-            if (result == null || result.Succeeded == false)
-                return null;
-
-            return result.Entity;
         }
     }
 }

@@ -1,5 +1,6 @@
 using Xunit;
 using Arcan.AtHome.API.Implementation.Queries;
+using Arcan.AtHome.API.Implementation.Infrastructure;
 
 namespace Arcan.AtHome.API.Implementation.Tests
 {
@@ -8,24 +9,13 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetActes()
         {
-            AuthentificationQuery authQuery = new AuthentificationQuery();
-
-            AuthentificationQueryArg arg = new AuthentificationQueryArg()
-            {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
-            };
-
-            AuthentificationQueryResult authResult = authQuery.Query(arg);
-
-            GetActesQuery query = new GetActesQuery(authResult.AtHomeUrl, authResult.Cookie);
-
-            GetActesQueryResult[] result = query.Query();
+            ActionResult<GetActesQueryResult[]> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetActesQueryResult[]>>(Urls.GetActes).Execute();
 
             Assert.NotNull(result);
+            Assert.True(result.Succeeded);
 
-            foreach (GetActesQueryResult acte in result)
+            var entity = result.Entity;
+            foreach (GetActesQueryResult acte in entity)
             {
                 Assert.True(acte.ActeId != default(int));
                 Assert.True(acte.TypeIntervenantId != default(decimal));
@@ -36,28 +26,16 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetActeParId()
         {
-            AuthentificationQuery authQuery = new AuthentificationQuery();
-
-            AuthentificationQueryArg arg = new AuthentificationQueryArg()
-            {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
-            };
-
-            AuthentificationQueryResult authResult = authQuery.Query(arg);
-
-            GetActeParIdQuery query = new GetActeParIdQuery(authResult.AtHomeUrl, authResult.Cookie);
-
-            GetActeParIdQueryResult result = query.Query(new GetActeParIdQueryArg(){
+            ActionResult<GetActeParIdQueryResult> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetActeParIdQueryResult>, GetActeParIdQueryArg>(Urls.GetActeParId).Execute(new GetActeParIdQueryArg(){
                 ActeId = 1
             });
 
             Assert.NotNull(result);
+            Assert.True(result.Succeeded);
 
-            Assert.True(result.ActeId != default(int));
-            Assert.True(result.TypeIntervenantId != default(decimal));
-            Assert.False(string.IsNullOrWhiteSpace(result.Libelle));
+            Assert.True(result.Entity.ActeId != default(int));
+            Assert.True(result.Entity.TypeIntervenantId != default(decimal));
+            Assert.False(string.IsNullOrWhiteSpace(result.Entity.Libelle));
         }
     }
 }

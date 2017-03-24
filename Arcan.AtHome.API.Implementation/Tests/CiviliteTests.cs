@@ -8,20 +8,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetCivilites()
         {
-            AuthentificationQuery authQuery = new AuthentificationQuery();
-
-            AuthentificationQueryArg arg = new AuthentificationQueryArg()
-            {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
-            };
-
-            AuthentificationQueryResult authResult = authQuery.Query(arg);
-
-            GetCiviliteQuery query = new GetCiviliteQuery(authResult.AtHomeUrl, authResult.Cookie);
-
-            GetCiviliteQueryResult[] result = query.Query();
+            GetCiviliteQueryResult[] result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<GetCiviliteQueryResult[]>(Urls.GetCivilite).Execute();
 
             Assert.NotNull(result);
 

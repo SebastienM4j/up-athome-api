@@ -1,5 +1,6 @@
 using Xunit;
 using Arcan.AtHome.API.Implementation.Queries;
+using Arcan.AtHome.API.Implementation.Infrastructure;
 
 namespace Arcan.AtHome.API.Implementation.Tests
 {
@@ -8,24 +9,12 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetTypesIntervenants()
         {
-            AuthentificationQuery authQuery = new AuthentificationQuery();
-
-            AuthentificationQueryArg arg = new AuthentificationQueryArg()
-            {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
-            };
-
-            AuthentificationQueryResult authResult = authQuery.Query(arg);
-
-            GetTypesIntervenantsQuery query = new GetTypesIntervenantsQuery(authResult.AtHomeUrl, authResult.Cookie);
-
-            GetTypesIntervenantsQueryResult[] result = query.Query();
+            ActionResult<GetTypesIntervenantsQueryResult[]> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetTypesIntervenantsQueryResult[]>>(Urls.GetTypesIntervenants).Execute();
 
             Assert.NotNull(result);
+            Assert.True(result.Succeeded);
 
-            foreach (GetTypesIntervenantsQueryResult typeInterv in result)
+            foreach (GetTypesIntervenantsQueryResult typeInterv in result.Entity)
             {
                 Assert.True(typeInterv.TypeIntervenantId != default(decimal));
                 Assert.False(string.IsNullOrWhiteSpace(typeInterv.Libelle));

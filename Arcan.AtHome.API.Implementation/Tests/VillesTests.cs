@@ -8,20 +8,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetVilles()
         {
-            AuthentificationQuery authQuery = new AuthentificationQuery();
-
-            AuthentificationQueryArg arg = new AuthentificationQueryArg()
-            {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
-            };
-
-            AuthentificationQueryResult authResult = authQuery.Query(arg);
-
-            GetVillesParCodePostalQuery query = new GetVillesParCodePostalQuery(authResult.AtHomeUrl, authResult.Cookie);
-
-            GetVillesParCodePostalQueryResult[] result = query.Query(new GetVillesParCodePostalQueryArg()
+            GetVillesParCodePostalQueryResult[] result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<GetVillesParCodePostalQueryResult[], GetVillesParCodePostalQueryArg>(Urls.GetVillesParCodePostal).Execute(new GetVillesParCodePostalQueryArg()
             {
                 CodePostal = "69001"
             });
