@@ -22,6 +22,8 @@ namespace Arcan.AtHome.API.Implementation.Queries
         public const string GetTypesIntervenants = "api/Sejour/Sejour/queries/GetTypesIntervenantsQuery";
 
         public const string CreerSalarie = "api/Administration/Salarie/commands/CreerSalarieCommand/Execute";
+        public const string ManageLinkedIds = "api/Maintenance/LinkedId/commands/ManageLinkedIdsCommand/Execute";
+
     }
 
     public class AtHomeClientFactory
