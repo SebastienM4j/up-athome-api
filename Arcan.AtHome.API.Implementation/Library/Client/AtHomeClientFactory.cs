@@ -23,6 +23,7 @@ namespace Arcan.AtHome.API.Implementation.Queries
 
         public const string CreerSalarie = "api/Administration/Salarie/commands/CreerSalarieCommand/Execute";
         public const string CreerVille = "api/Administration/Ville/commands/CreateVilleCommand/Execute";
+        public const string CreerAntenne = "api/Etablissement/Antenne/commands/CreerAntenneCommand/Execute";
     }
 
     public class AtHomeClientFactory
