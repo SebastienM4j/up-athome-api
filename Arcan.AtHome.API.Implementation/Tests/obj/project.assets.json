@@ -2926,10 +2926,10 @@
           "Newtonsoft.Json": "9.0.1"
         },
         "compile": {
-          "bin/placeholder/netstandard1.2/Library.dll": {}
+          "bin/placeholder/netstandard1.2/Arcan.AtHome.API.Implementation.Library.dll": {}
         },
         "runtime": {
-          "bin/placeholder/netstandard1.2/Library.dll": {}
+          "bin/placeholder/netstandard1.2/Arcan.AtHome.API.Implementation.Library.dll": {}
         }
       }
     }

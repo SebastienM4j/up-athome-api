@@ -405,7 +405,7 @@
           "Newtonsoft.Json": "9.0.1"
         },
         "runtime": {
-          "Library.dll": {}
+          "Arcan.AtHome.API.Implementation.Library.dll": {}
         }
       }
     }
