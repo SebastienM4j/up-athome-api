@@ -103,7 +103,7 @@ namespace Arcan.AtHome.API.Implementation.Queries
                 return null;
 
             // TODO: delete
-            authResult.Entity.Url = "http://192.168.1.89:2083/";
+            //authResult.Entity.Url = "http://192.168.1.89:2083/";
             return authResult.Entity;
         }
 
