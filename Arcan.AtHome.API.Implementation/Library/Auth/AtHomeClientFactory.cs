@@ -5,11 +5,6 @@ namespace Arcan.AtHome.API.Implementation.Queries
     public static class Urls
     {
         public const string GetAntennes = "api/Etablissement/Antenne/queries/GetAntenneQuery";
-
-        public static string Antenne(this string url)
-        {
-            return url;
-        }
     }
 
     public class AtHomeClientFactory
