@@ -2834,7 +2834,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/Library.csproj",
-      "projectName": "Library",
+      "projectName": "Arcan.AtHome.API.Implementation.Library",
       "projectPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/Library.csproj",
       "outputPath": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/obj/",
       "projectStyle": "PackageReference",
@@ -2842,7 +2842,7 @@
         "netstandard1.2"
       ],
       "files": {
-        "lib/netstandard1.2/Library.dll": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/bin/placeholder/netstandard1.2/Library.dll"
+        "lib/netstandard1.2/Arcan.AtHome.API.Implementation.Library.dll": "/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/bin/placeholder/netstandard1.2/Arcan.AtHome.API.Implementation.Library.dll"
       },
       "frameworks": {
         "netstandard1.2": {
