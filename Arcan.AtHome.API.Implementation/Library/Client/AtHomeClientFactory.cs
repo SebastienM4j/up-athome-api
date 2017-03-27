@@ -27,6 +27,16 @@ namespace Arcan.AtHome.API.Implementation.Queries
 
         public const string CreerVille = "api/Administration/Ville/commands/CreateVilleCommand/Execute";
         public const string CreerAntenne = "api/Etablissement/Antenne/commands/CreerAntenneCommand/Execute";
+
+        public const string CreerActe = "api/Sejour/Acte/commands/CreerActeCommand/Execute";
+        public const string CreerVisiteSalarie = "api/Sejour/VisiteSalarie/commands/CreerVisiteSalarieCommand/Execute";
+        public const string CreerPassagePonctuel = "api/Sejour/PassagePonctuel/commands/CreerPassagePonctuelCommand/Execute";
+        public const string MettreAJourPassagePonctuel = "api/Sejour/PassagePonctuel/commands/MettreAJourPassagePonctuelCommand/Execute";
+        public const string SupprimerPassagePonctuel = "api/Sejour/PassagePonctuel/commands/SupprimerPassagePonctuelCommand/Execute";
+
+        public const string CreerTournee = "api/RH/Tour/commands/CreerTourneeCommand/Execute";
+        public const string AffecteSalarieTournee = "api/RH/Tour/commands/AffecterSalarieATourneeCommand/Execute";
+        public const string AffecterPassageTournee = "api/RH/Tour/commands/AffecterPassageATourneeCommand/Execute";
     }
 
     public class AtHomeClientFactory
