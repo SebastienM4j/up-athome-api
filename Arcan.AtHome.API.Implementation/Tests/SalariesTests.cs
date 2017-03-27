@@ -10,8 +10,8 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetSalaries()
         {
-            GetSalarieParIdQueryResult[] result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<GetSalarieParIdQueryResult[], GetSalarieParIdQueryArg>(Urls.GetSalariesParIds).Execute(new GetSalarieParIdQueryArg(){
-                SalarieIds = new decimal[] { 610 }
+            GetSalarieParIdQueryResult[] result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<GetSalarieParIdQueryResult[], GetSalarieParIdQueryArg>(Urls.GetSalariesParIds).Execute(new GetSalarieParIdQueryArg(){
+                SalarieIds = new decimal[] { 442 }
             });
 
             Assert.NotNull(result);
@@ -26,7 +26,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void CreerSalarie()
         {
-            ActionResult<CreerSalarieCommandResult> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<CreerSalarieCommandResult>, CreerSalarieCommandArg>(Urls.CreerSalarie).Execute(new CreerSalarieCommandArg(){
+            ActionResult<CreerSalarieCommandResult> result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<ActionResult<CreerSalarieCommandResult>, CreerSalarieCommandArg>(Urls.CreerSalarie).Execute(new CreerSalarieCommandArg(){
                 Matricule = "123456789",
                 CiviliteId = 1,
                 Nom = "SalarieNOM",

@@ -8,7 +8,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetCivilites()
         {
-            GetCiviliteQueryResult[] result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<GetCiviliteQueryResult[]>(Urls.GetCivilite).Execute();
+            GetCiviliteQueryResult[] result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<GetCiviliteQueryResult[]>(Urls.GetCivilite).Execute();
 
             Assert.NotNull(result);
 

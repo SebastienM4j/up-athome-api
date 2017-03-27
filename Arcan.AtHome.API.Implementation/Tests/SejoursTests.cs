@@ -10,7 +10,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetSejoursParDate()
         {
-            ActionResult<GetSejoursParDateQueryResult[]> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetSejoursParDateQueryResult[]>, GetSejoursParDateQueryArg>(Urls.GetSejoursParDate).Execute(new GetSejoursParDateQueryArg(){
+            ActionResult<GetSejoursParDateQueryResult[]> result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<ActionResult<GetSejoursParDateQueryResult[]>, GetSejoursParDateQueryArg>(Urls.GetSejoursParDate).Execute(new GetSejoursParDateQueryArg(){
                 DateDebut = new DateTime(2017, 1, 1),
                 DateFin = new DateTime(2017, 6, 1),
             });
@@ -29,7 +29,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetSejoursParIdExterne()
         {
-            ActionResult<GetSejoursParIdExterneQueryResult> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetSejoursParIdExterneQueryResult>, GetSejoursParIdExterneQueryArg>(Urls.GetSejourParIdExterne).Execute(new GetSejoursParIdExterneQueryArg(){
+            ActionResult<GetSejoursParIdExterneQueryResult> result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<ActionResult<GetSejoursParIdExterneQueryResult>, GetSejoursParIdExterneQueryArg>(Urls.GetSejourParIdExterne).Execute(new GetSejoursParIdExterneQueryArg(){
                 IdentifiantExterne = "123456789",
             });
 

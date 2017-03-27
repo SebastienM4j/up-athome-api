@@ -9,7 +9,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetVilles()
         {
-            GetVillesParCodePostalQueryResult[] result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<GetVillesParCodePostalQueryResult[], GetVillesParCodePostalQueryArg>(Urls.GetVillesParCodePostal).Execute(new GetVillesParCodePostalQueryArg()
+            GetVillesParCodePostalQueryResult[] result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<GetVillesParCodePostalQueryResult[], GetVillesParCodePostalQueryArg>(Urls.GetVillesParCodePostal).Execute(new GetVillesParCodePostalQueryArg()
             {
                 CodePostal = "69001"
             });
@@ -25,7 +25,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void CreerVille()
         {
-            ActionResult<CreerVilleCommandResult> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<CreerVilleCommandResult>, CreerVilleCommandArg>(Urls.CreerVille).Execute(new CreerVilleCommandArg()
+            ActionResult<CreerVilleCommandResult> result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<ActionResult<CreerVilleCommandResult>, CreerVilleCommandArg>(Urls.CreerVille).Execute(new CreerVilleCommandArg()
             {
                 CodePostal = "69001",
                 villeNom = "Gotham City 2"

@@ -12,9 +12,9 @@ namespace Arcan.AtHome.API.Implementation.Tests
 
             AuthentificationQueryArg arg = new AuthentificationQueryArg()
             {
-                UniqueCode = "9999999",
-                ApiKey = "PECHAD",
-                ApiSecret = "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630"
+                UniqueCode = Credentials.UniqueCode,
+                ApiKey = Credentials.ApiKey,
+                ApiSecret = Credentials.ApiSecret
             };
 
             AuthentificationQueryResult result = query.Query(arg);

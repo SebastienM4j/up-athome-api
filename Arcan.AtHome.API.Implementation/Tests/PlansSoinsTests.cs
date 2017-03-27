@@ -10,7 +10,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetPlansSoinsParSejourEtDates()
         {
-            ActionResult<GetPlansSoinsParSejoursEtDatesQueryResult[]> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetPlansSoinsParSejoursEtDatesQueryResult[]>, GetPlansSoinsParSejoursEtDatesQueryArg>(Urls.GetPlansSoinsParSejoursEtDates).Execute(new GetPlansSoinsParSejoursEtDatesQueryArg(){
+            ActionResult<GetPlansSoinsParSejoursEtDatesQueryResult[]> result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<ActionResult<GetPlansSoinsParSejoursEtDatesQueryResult[]>, GetPlansSoinsParSejoursEtDatesQueryArg>(Urls.GetPlansSoinsParSejoursEtDates).Execute(new GetPlansSoinsParSejoursEtDatesQueryArg(){
                 SejourIds = new decimal[0],
                 DateDebut = new DateTime(2017, 1, 1),
             });
@@ -41,8 +41,8 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetPlansSoinsParId()
         {
-            ActionResult<GetPlansSoinsParIdQueryResult> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetPlansSoinsParIdQueryResult>, GetPlansSoinsParIdQueryArg>(Urls.GetPlansSoinsParId).Execute(new GetPlansSoinsParIdQueryArg(){
-                PlanSoinsId = 3294,
+            ActionResult<GetPlansSoinsParIdQueryResult> result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<ActionResult<GetPlansSoinsParIdQueryResult>, GetPlansSoinsParIdQueryArg>(Urls.GetPlansSoinsParId).Execute(new GetPlansSoinsParIdQueryArg(){
+                PlanSoinsId = 13,
             });
 
             Assert.NotNull(result);

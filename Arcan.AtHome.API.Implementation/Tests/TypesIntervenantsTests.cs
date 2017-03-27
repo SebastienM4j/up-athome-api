@@ -9,7 +9,7 @@ namespace Arcan.AtHome.API.Implementation.Tests
         [Fact]
         public void GetTypesIntervenants()
         {
-            ActionResult<GetTypesIntervenantsQueryResult[]> result = new AtHomeClientFactory("9999999", "PECHAD", "fe45086c02c374179f145d4e935a0cef64d8a801e7a2645ba01f8c4d7d230630").Create<ActionResult<GetTypesIntervenantsQueryResult[]>>(Urls.GetTypesIntervenants).Execute();
+            ActionResult<GetTypesIntervenantsQueryResult[]> result = new AtHomeClientFactory(Credentials.UniqueCode, Credentials.ApiKey, Credentials.ApiSecret).Create<ActionResult<GetTypesIntervenantsQueryResult[]>>(Urls.GetTypesIntervenants).Execute();
 
             Assert.NotNull(result);
             Assert.True(result.Succeeded);
