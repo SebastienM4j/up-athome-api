@@ -1,16 +1,9 @@
-using System;
-
+ using System;
 namespace Arcan.AtHome.API.Implementation.Commands
 {
-    public enum SexeIds
+ public class UpdateSalarieCommandArg
     {
-        Inconnu = 0,
-        Masculin = 1,
-        Feminin = 2,
-    }
-
-    public class CreerSalarieCommandArg
-    {
+        public decimal Id { get; set; }
         public string Matricule { get; set; }
         public decimal CiviliteId { get; set; }
         public string Nom { get; set; }
@@ -32,13 +25,13 @@ namespace Arcan.AtHome.API.Implementation.Commands
         public decimal? AntenneId { get; set; }
         public decimal? VilleId { get; set; }
         public decimal TypeSalarieId { get; set; }
-        public String Email { get; set; }
-        public String Commentaire { get; set; }
+
+        public string Email { get; set; }
+        public string Commentaire { get; set; }
     }
 
-    public class CreerSalarieCommandResult
+    public class UpdateSalarieCommandResult
     {
-        public decimal SalariId { get; internal set; }
-        public decimal UserId { get; internal set; }
+                public decimal SalarieId { get; internal set; }
     }
 }
