@@ -24,7 +24,7 @@
 ehthumbs.db
 Thumbs.db
 
-Arcan.AtHome.API/Client/bin
-Arcan.AtHome.API/Client/obj
+Arcan.AtHome.API/Library/bin
+Arcan.AtHome.API/Library/obj
 Arcan.AtHome.API/Tests/bin
 Arcan.AtHome.API/Tests/obj
