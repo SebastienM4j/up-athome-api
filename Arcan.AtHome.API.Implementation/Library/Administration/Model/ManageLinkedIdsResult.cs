@@ -2,11 +2,11 @@ namespace Arcan.AtHome.API.Implementation.Commands
 {
   public enum AtHomeEntityType
     {
-        Utilisateur,
-        TypeSalarie,
-        Patient,
-        Salarie,
-        Antenne,
+        Utilisateur = 4,
+        TypeSalarie = 5,
+        Patient = 6,
+        Salarie = 14,
+        Antenne = 19,
     }
  
  public class ManageLinkedIdsArg
