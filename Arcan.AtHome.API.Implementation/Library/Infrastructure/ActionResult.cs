@@ -32,7 +32,7 @@ namespace Arcan.AtHome.API.Implementation.Infrastructure
 
         public bool Succeeded { get; set; }
 
-        public Message[] Messages { get; protected set; }
+        public Message[] Messages { get;  set; }
 
         public override string ToString()
         {
