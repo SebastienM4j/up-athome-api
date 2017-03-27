@@ -1,0 +1,12 @@
+/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Library/bin/Debug/netstandard1.2/Library.deps.json
+/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Library/obj/Debug/netstandard1.2/Library.AssemblyInfo.cs
+/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Library/bin/Debug/netstandard1.2/Library.dll
+/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Library/bin/Debug/netstandard1.2/Library.pdb
+/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Library/obj/Debug/netstandard1.2/Library.dll
+/Users/benjamin/Desktop/Arcan.AtHome.API.Implementation/Library/obj/Debug/netstandard1.2/Library.pdb
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/bin/Debug/netstandard1.2/Arcan.AtHome.API.Implementation.Library.deps.json
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/bin/Debug/netstandard1.2/Arcan.AtHome.API.Implementation.Library.dll
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/bin/Debug/netstandard1.2/Arcan.AtHome.API.Implementation.Library.pdb
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/obj/Debug/netstandard1.2/Library.AssemblyInfo.cs
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/obj/Debug/netstandard1.2/Arcan.AtHome.API.Implementation.Library.dll
+/Users/benjamin/Desktop/WebAPI/Arcan.AtHome.API.Implementation/Library/obj/Debug/netstandard1.2/Arcan.AtHome.API.Implementation.Library.pdb
