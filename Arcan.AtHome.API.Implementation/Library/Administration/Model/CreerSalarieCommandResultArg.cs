@@ -38,7 +38,7 @@ namespace Arcan.AtHome.API.Implementation.Commands
 
     public class CreerSalarieCommandResult
     {
-        public decimal SalariId { get; internal set; }
-        public decimal UserId { get; internal set; }
+        public decimal SalariId { get;  set; }
+        public decimal UserId { get;  set; }
     }
 }
