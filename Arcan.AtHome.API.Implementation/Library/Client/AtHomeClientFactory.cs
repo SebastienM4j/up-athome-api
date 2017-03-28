@@ -22,6 +22,16 @@ namespace Arcan.AtHome.API.Implementation.Queries
         public const string GetTypesIntervenants = "api/Sejour/Sejour/queries/GetTypesIntervenantsQuery";
 
         public const string CreerSalarie = "api/Administration/Salarie/commands/CreerSalarieCommand/Execute";
+        
+        
+        public const string AffecterHoraireDeTravailCommand = "api/RH/TimeSlot/commands/AffecterHoraireDeTravailCommand/Execute";
+        public const string DesaffecterHoraireDeTravailCommand = "api/RH/TimeSlot/commands/DesaffecterHoraireDeTravailCommand/Execute";
+        public const string AjouterTypePlageHoraireCommand = "api/RH/TimeSlot/commands/AjouterTypePlageHoraireCommand/Execute";
+        public const string GetTypePlageHoraireParNomQuery = "api/RH/TimeSlot/queries/GetTypePlageHoraireParNomQuery";
+
+
+
+
         public const string UpdateSalarie = "api/Administration/Salarie/commands/UpdateSalarieCommand/Execute";
         public const string ManageLinkedIds = "api/Maintenance/LinkedId/commands/ManageLinkedIdsCommand/Execute";
 
