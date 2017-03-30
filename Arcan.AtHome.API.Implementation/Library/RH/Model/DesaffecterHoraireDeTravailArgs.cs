@@ -10,9 +10,9 @@ namespace Arcan.AtHome.API.Implementation.Queries
 
         public Guid TypeHoraireDeTravailId { get; set; }
 
-        public string HeureDebut { get; set; }
+        public TimeSpan HeureDebut { get; set; }
 
-        public string HeureFin { get; set; }
+        public TimeSpan HeureFin { get; set; }
 
     }
 }

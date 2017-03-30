@@ -8,9 +8,9 @@ namespace Arcan.AtHome.API.Implementation.Queries
 
         public DateTime Date { get; set; }
 
-        public string HeureDebut { get; set; }
+        public TimeSpan HeureDebut { get; set; }
 
-        public string HeureFin { get; set; }
+        public TimeSpan HeureFin { get; set; }
 
         public decimal? AntenneId { get; set; }
 

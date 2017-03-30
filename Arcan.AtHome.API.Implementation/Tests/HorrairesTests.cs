@@ -51,8 +51,8 @@ namespace Arcan.AtHome.API.Implementation.Tests
             .Execute(new AffecterHoraireDeTravailCommandArgs(){
                 SalarieId =442,
                 Date = DateTime.Now,
-                HeureDebut = new TimeSpan(9,0,0).ToString(),
-                HeureFin = new TimeSpan(18,0,0).ToString() ,
+                HeureDebut = new TimeSpan(9,0,0),
+                HeureFin = new TimeSpan(18,0,0) ,
                 AntenneId = null,
                 TypeHoraireDeTravailId = newTypePlageHorraire.Entity.Id
             });
@@ -83,8 +83,8 @@ namespace Arcan.AtHome.API.Implementation.Tests
             .Execute(new AffecterHoraireDeTravailCommandArgs(){
                 SalarieId =442,
                 Date = DateTime.Now,
-                HeureDebut = new TimeSpan(9,0,0).ToString(),
-                HeureFin = new TimeSpan(18,0,0).ToString() ,
+                HeureDebut = new TimeSpan(9,0,0),
+                HeureFin = new TimeSpan(18,0,0) ,
                 AntenneId = null,
                 TypeHoraireDeTravailId = newTypePlageHorraire.Entity.Id
             });
@@ -97,8 +97,8 @@ namespace Arcan.AtHome.API.Implementation.Tests
                     SalarieId =442,
                     Date = DateTime.Now,
                    TypeHoraireDeTravailId = newTypePlageHorraire.Entity.Id,
-                   HeureDebut = new TimeSpan(9,0,0).ToString(),
-                   HeureFin =new TimeSpan(18,0,0).ToString()
+                   HeureDebut = new TimeSpan(9,0,0),
+                   HeureFin =new TimeSpan(18,0,0)
             });
 
             Assert.Equal(true, result.Succeeded);
