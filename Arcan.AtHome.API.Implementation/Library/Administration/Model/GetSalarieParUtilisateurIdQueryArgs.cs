@@ -31,5 +31,6 @@ using System;
         public string RPPS { get; set; }
         public string Email { get; set; }
         public string Commentaire { get; set; }
+         public bool IsActif { get; set; }
         public decimal? VilleId { get; set; }
     }
