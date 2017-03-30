@@ -1,7 +1,7 @@
  using System;
 namespace Arcan.AtHome.API.Implementation.Commands
 {
- public class UpdateSalarieCommandArg
+ public class UpdateSalarieCommandArgs
     {
         public decimal Id { get; set; }
         public string Matricule { get; set; }
@@ -28,6 +28,7 @@ namespace Arcan.AtHome.API.Implementation.Commands
 
         public string Email { get; set; }
         public string Commentaire { get; set; }
+        public bool IsActif { get; set; }
     }
 
     public class UpdateSalarieCommandResult
