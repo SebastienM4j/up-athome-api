@@ -6,7 +6,7 @@ namespace Arcan.AtHome.API.Implementation.Queries
     {
         public Guid TourneeId { get; set; }
 
-        public DateTime DatePassage { get; set; }
+        public DateTime Date { get; set; }
 
         public decimal PassageId { get; set; }
 
