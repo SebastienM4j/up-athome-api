@@ -32,6 +32,6 @@ namespace Arcan.AtHome.API.Implementation.Commands
 
     public class UpdateSalarieCommandResult
     {
-                public decimal SalarieId { get; internal set; }
+                public decimal SalarieId { get;  set; }
     }
 }
