@@ -28,5 +28,8 @@ using System;
         public string TelephoneFixe { get; set; }
         public string TelephonePortable { get; set; }
         public string NumeroPoste { get; set; }
+        public string RPPS { get; set; }
+        public string Email { get; set; }
+        public string Commentaire { get; set; }
         public decimal? VilleId { get; set; }
     }
