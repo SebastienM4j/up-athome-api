@@ -5,8 +5,8 @@ namespace Arcan.AtHome.API.Implementation.Queries
     public class GetPassagePonctuelParSejourEtDatesQueryArg
     {
         public decimal SejourId { get; set; }
-        public DateTime DateDebut { get; set; }
-        public DateTime DateFin { get; set; }
+        public DateTime? DateDebut { get; set; }
+        public DateTime? DateFin { get; set; }
 
     }
 
