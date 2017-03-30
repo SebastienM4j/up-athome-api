@@ -7,6 +7,7 @@ namespace Arcan.AtHome.API.Implementation.Queries
         public const string GetCivilite = "api/Administration/Salarie/queries/GetCiviliteQuery";
         public const string GetFonction = "api/Administration/Salarie/queries/GetFonctionQuery";
         public const string GetSalariesParIds = "api/Administration/Salarie/queries/GetSalarieParIdQuery";
+        public const string GetSalarieParUtilisateurId = "api/Administration/Salarie/queries/GetSalarieParUtilisateurIdQuery";
         public const string GetTypesSalaries = "api/Administration/Salarie/queries/GetTypeSalarieQuery";
         public const string GetVillesParCodePostal = "api/Administration/Ville/queries/GetVilleParCodePostalQuery";
         public const string GetEtablissementGeographique = "api/Etablissement/Antenne/queries/GetEtablismentGeographiqueQuery";
