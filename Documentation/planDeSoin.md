@@ -1,0 +1,212 @@
+# Plans de soins
+
+---- 
+
+## Obtenir une liste d'actes prédéfinis
+
+Retourne la liste des actes existants sur AtHome.
+
+**/api/Sejour/Sejour/queries/GetActesQuery**
+
+### Paramètres
+
+- `Aucun`
+
+### Retour
+
+En cas de succès la liste d'actes définie dans AtHome :
+
+- `ActeId` : ID de l'acte *(int)*
+- `Libelle` : Nom de l'acte *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
+
+## Obtenir un Acte par ID
+
+Retourne l'acte correspondant à l'ID donné.
+
+**/api/Sejour/Sejour/queries/GetActeParIdQuery**
+
+### Paramètres
+
+- `ActeId` : ID de l'acte *(int)*
+
+### Retour
+
+En cas de succès la liste d'actes définie dans AtHome :
+
+- `ActeId` : ID de l'acte *(int)*
+- `Libelle` : Nom de l'acte *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
+
+## Créer un Acte
+
+Crée un acte et retourne son ID.
+
+**/api/Sejour/Acte/commands/CreerActeCommand/Execute**
+
+### Paramètres
+
+- `Libelle` : Nom de l'acte *(string)*
+- `LibelleCourt` : Nom de l'acte, version courte *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
+
+### Retour
+
+En cas de succès l'id de l'acte créé :
+
+- `ActeId` : *(int)*
+
+## Obtenir la liste de type d'intervenants
+
+Retourne la liste des types d'intervenants existants sur AtHome.
+
+**/api/Sejour/Sejour/queries/GetTypesIntervenantsQuery**
+
+### Paramètres
+
+- `Aucun`
+
+### Retour
+
+En cas de succès la liste des types d'intervenants définis dans AtHome :
+
+- `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
+- `Libelle` : Nom du type d'intervenant *(string)*
+
+## Obtenir des plans de soins
+
+### A) Par Séjours ID et Dates
+
+Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
+
+**/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParSejoursEtDatesQuery**
+
+#### Paramètres
+
+- `SejourIds` : Liste d'ID de séjours *(array)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DDTHH:MM:SS *(string, optionnel)*
+
+#### Retour
+
+- `PlanSoinsId` : ID du plan de soins *(decimal)*
+- `SejourId` : ID du séjour *(decimal)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFinPrevisonnelle` : Date de fin prévisionelle, YYYY-MM-DDTHH:MM:SS *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(string)*
+- `TypeIntervenantLibelle` : Nom du type d'intervenant *(string)*
+- `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
+
+Entité **LignePlanSoins** :
+
+- `LignePlanSoinsId` : ID de la ligne de soins *(decimal)*
+- `Jour` : Entier compris entre 0 et 6. 0 = Dimanche, 1 = Lundi… *(int)*
+- `HeureDebut` : D:HH:MM:SS\* (string)\*
+- `HeureFin` : D:HH:MM:SS\* (string)\*
+- `Obligatoire` : *(bool)*
+- `Actes` : Liste des actes _(array d'**Acte**)_
+
+Entité **Acte** :
+
+- `ActeId` : ID de l'acte *(decimal)*
+- `Libelle` : Nom de l'acte *(string)*
+
+### B) Par Plan de Soins ID
+
+Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
+
+**/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery**
+
+#### Paramètres
+
+- `PlanSoinsId` : ID du plan de soins *(array)*
+
+#### Retour
+
+- `PlanSoinsId` : ID du plan de soins *(decimal)*
+- `SejourId` : ID du séjour *(decimal)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFinPrevisonnelle` : Date de fin prévisionelle, YYYY-MM-DDTHH:MM:SS *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(string)*
+- `TypeIntervenantLibelle` : Nom du type d'intervenant *(string)*
+- `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
+
+Entité **LignePlanSoins** :
+
+- `LignePlanSoinsId` : ID de la ligne de soins *(decimal)*
+- `Jour` : Entier compris entre 0 et 6. 0 = Dimanche, 1 = Lundi… *(int)*
+- `HeureDebut` : D:HH:MM:SS\* (string)\*
+- `HeureFin` : D:HH:MM:SS\* (string)\*
+- `Obligatoire` : *(bool)*
+- `Actes` : Liste des actes _(array d'**Acte**)_
+
+Entité **Acte** :
+
+- `ActeId` : ID de l'acte *(decimal)*
+- `Libelle` : Nom de l'acte *(string)*
+
+## Créer un plan de soins
+
+Crée un plan de soin pour un séjour.
+
+**/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSalarieCommand/Execute**
+
+### Paramètres
+
+- `SejourId` : ID du séjour *(decimal)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
+- `Commentaire` : Commentaire *(string)*
+- `EtatPlanSoin` : 0 = Brouillon, 1 = Validé, 2 = Cloturé *(int)*
+- `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
+
+Entité **LignePlanSoins** :
+
+- `Jour` : Entier compris entre 0 et 6, 0 pour Dimanche, 6 pour Samedi *(int)*
+- `HeureDebut` : Heure de début du passage, D:HH:MM:SS *(string)*
+- `HeureFin` : Heure de fin du passage, D:HH:MM:SS *(string)*
+- `Obligatoire` : *(bool)*
+- `ActeIds` : Liste d'ID d'actes *(array d'int)*
+
+### Retour
+
+Si la création a réussi l'id du plan de soin créé.
+
+## Mettre-à-jour un plan de soins
+
+Met un plan de soins à jour.
+
+**/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute**
+
+### Paramètres
+
+- `PlanSoinId` : ID du plan de soins *(decimal)*
+- `SejourId` : ID du séjour *(decimal)*
+- `DateDebut` : Date de début du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `DateFin` : Date de fin du plan de soins, YYYY-MM-DDTHH:MM:SS *(string)*
+- `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
+- `Commentaire` : Commentaire *(string)*
+- `EtatPlanSoin` : 0 = Brouillon, 1 = Validé, 2 = Cloturé *(int)*
+- `Lignes` : Liste de lignes de soins _(array de **LignePlanSoins**)_
+
+Entité **LignePlanSoins** :
+
+- `Jour` : Entier compris entre 0 et 6, 0 pour Dimanche, 6 pour Samedi *(int)*
+- `HeureDebut` : Heure de début du passage, D:HH:MM:SS *(string)*
+- `HeureFin` : Heure de fin du passage, D:HH:MM:SS *(string)*
+- `Obligatoire` : *(bool)*
+- `ActeIds` : Liste d'ID d'actes *(array d'int)*
+
+
+## Supprimer un plan de soins
+
+Supprime le plan de soins correspondant à l'ID donné.
+
+**/api/Sejour/PlanSoinSalarie/commands/SupprimerPlanSoinCommand/Execute**
+
+### Paramètres
+
+- `PlanSoinId` : ID du plan de soins *(decimal)*
