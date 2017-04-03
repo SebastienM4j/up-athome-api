@@ -1,7 +1,5 @@
 # Authentification
 
----- 
-
 Avant de pouvoir utiliser les APIs une authentification est nécéssaire, elle se déroule en 2 étapes. Pour cela une **APIKEY** et une **APISECRET** vous sont fournis.
 
 ## 1) Obtenir l'URL du site AtHome et une réponse SAML
