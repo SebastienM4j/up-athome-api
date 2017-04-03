@@ -1,6 +1,4 @@
- #Actes
-
- ----
+ # Actes
 
 ## Obtenir une liste d'actes prédéfinis
 
