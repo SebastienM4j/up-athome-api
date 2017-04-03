@@ -1,7 +1,5 @@
 # Patients
 
----- 
-
 ## Obtenir un patient
 
 Retourne le patient associé à l'ID donné.

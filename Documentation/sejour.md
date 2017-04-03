@@ -1,7 +1,5 @@
 # Séjours
 
----- 
-
 ## Obtenir un séjour
 
 ### A) Par date
