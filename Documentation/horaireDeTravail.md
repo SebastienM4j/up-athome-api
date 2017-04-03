@@ -1,5 +1,17 @@
 #Horaire de travail
 
+## Obtenir un type de plage horaire
+
+**/api/RH/TimeSlot/queries/GetTypePlageHoraireParNomQuery**
+
+### Paramètres
+
+- `Libelle` : Nom du type *(string)*
+
+### Retour
+
+ID (GUID) de la plage horaire.
+
 ## Ajouter un type de plage horaire
 
 **/api/RH/TimeSlot/commands/AjouterTypePlageHoraireCommand/Execute**

@@ -47,18 +47,6 @@ Retourne le contenu de la tournée (lignes de plan de soins).
 - `Salaries` : Liste d'ID de salaries _(array de decimal)_
 - `LignePlanSoinSalaries` : Lignes de plans de soins _(array de **LignePlanSoinSalaries**)_
 
-## Obtenir un type de plage horaire
-
-**/api/RH/TimeSlot/queries/GetTypePlageHoraireParNomQuery**
-
-### Paramètres
-
-- `Libelle` : Nom du type *(string)*
-
-### Retour
-
-ID (GUID) de la plage horaire.
-
 ## Affecter un salarié à une tournée
 
 Affecte un salarié à une tournée
@@ -107,5 +95,5 @@ Désaffecte un passage d'une tournée
 
 - `TourneeId` : ID de la tournée *(decimal)*
 - `Date` : YYYY-MM-DDTHH:MM:SS *(string)*
-- `PassageId` : ID du passage *(decimal)*
+- `PassageId` : ID du passage *(decimal)*, pour affecter un passage ponctuel utilisez le `PassagePonctuelId`, pour une ligne de plan de soin utilisez `LignePlanSoinsId`
 - `EstPonctuel` : Ponctuel ou pas ? *(bool)*
