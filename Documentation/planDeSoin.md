@@ -1,9 +1,5 @@
 # Plans de soins
 
----- 
-
-
-
 ## Obtenir des plans de soins
 
 ### A) Par Séjours ID et Dates
