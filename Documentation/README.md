@@ -1,1 +1,1 @@
-Chaque fichier md contient un ensemnle de précision sur les APIs.
+Chaque fichier md contient un ensemble de précision sur les APIs.
