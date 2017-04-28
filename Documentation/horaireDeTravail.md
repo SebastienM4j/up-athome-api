@@ -2,7 +2,7 @@
 
 ## Obtenir un type de plage horaire
 
-**/api/RH/TimeSlot/queries/GetTypePlageHoraireParNomQuery**
+**GetTypePlageHoraireParNomQuery**
 
 ### Paramètres
 
@@ -14,7 +14,7 @@ ID (GUID) de la plage horaire.
 
 ## Ajouter un type de plage horaire
 
-**/api/RH/TimeSlot/commands/AjouterTypePlageHoraireCommand/Execute**
+**AjouterTypePlageHoraireCommand**
 
 ### Paramètres
 
@@ -29,7 +29,7 @@ ID (GUID) de la plage horaire.
 - `ID` : ID de la plage horaire _(string, GUID)_
 ## Affecter un horaire de travail à un salarié
 
-**/api/RH/TimeSlot/commands/AffecterHoraireDeTravailCommand/Execute**
+**AffecterHoraireDeTravailCommand**
 
 ### Paramètres
 
@@ -46,7 +46,7 @@ ID (GUID) de la plage horaire.
 
 ## Désaffecter un horaire de travail d'un salarié
 
-**/api/RH/TimeSlot/commands/DesaffecterHoraireDeTravailCommand/Execute**
+**DesaffecterHoraireDeTravailCommand**
 
 ### Paramètres
 

@@ -4,7 +4,7 @@
 
 Retourne la liste des actes existants sur AtHome.
 
-**/api/Sejour/Sejour/queries/GetActesQuery**
+**GetActesQuery**
 
 ### Paramètres
 
@@ -22,7 +22,7 @@ En cas de succès la liste d'actes définie dans AtHome :
 
 Retourne l'acte correspondant à l'ID donné.
 
-**/api/Sejour/Sejour/queries/GetActeParIdQuery**
+**GetActeParIdQuery**
 
 ### Paramètres
 
@@ -40,7 +40,7 @@ En cas de succès la liste d'actes définie dans AtHome :
 
 Crée un acte et retourne son ID.
 
-**/api/Sejour/Acte/commands/CreerActeCommand/Execute**
+**CreerActeCommand**
 
 ### Paramètres
 

@@ -4,7 +4,7 @@
 
 Crée une tournée
 
-**/api/RH/Tour/commands/CreerTourneeCommand/Execute**
+**CreerTourneeCommand**
 
 ### Paramètres
 
@@ -19,7 +19,7 @@ Si succès, ID de la tournée.
 
 Retrouve une tournée en fonction du nom donné.
 
-**/api/RH/Tour/queries/GetTourneeParNomQuery**
+**GetTourneeParNomQuery**
 
 ### Paramètres
 
@@ -33,7 +33,7 @@ Si succès, ID (GUID) et nom de la tournée.
 
 Retourne le contenu de la tournée (lignes de plan de soins).
 
-**/api/RH/Tour/queries/GetTourneeContenuParIdQuery**
+**GetTourneeContenuParIdQuery**
 
 ### Paramètres
 
@@ -51,7 +51,7 @@ Retourne le contenu de la tournée (lignes de plan de soins).
 
 Affecte un salarié à une tournée
 
-**/api/RH/Tour/commands/AffecterSalarieATourneeCommand/Execute**
+**AffecterSalarieATourneeCommand**
 
 ### Paramètres
 
@@ -64,7 +64,7 @@ Affecte un salarié à une tournée
 
 Affecte un passage à une tournée
 
-**/api/RH/Tour/commands/AffecterPassageATourneeCommand/Execute**
+**AffecterPassageATourneeCommand**
 
 ### Paramètres
 
@@ -76,7 +76,7 @@ Affecte un passage à une tournée
 
 Désaffecte un salarié d'une tournée
 
-**/api/RH/Tour/commands/DesaffecterSalarieATourneeCommand/Execute**
+**DesaffecterSalarieATourneeCommand**
 
 ### Paramètres
 
@@ -89,7 +89,7 @@ Désaffecte un salarié d'une tournée
 
 Désaffecte un passage d'une tournée
 
-**/api/RH/Tour/commands/DesaffecterPassageATourneeCommand/Execute**
+**DesaffecterPassageATourneeCommand**
 
 ### Paramètres
 

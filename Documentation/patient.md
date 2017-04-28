@@ -4,7 +4,7 @@
 
 Retourne le patient associé à l'ID donné.
 
-**/api/Patient/Patient/queries/GetPatientParIdQuery**
+**GetPatientParIdQuery**
 
 ### Paramètres
 

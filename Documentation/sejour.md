@@ -6,7 +6,7 @@
 
 Retourne une liste de séjours comprise entre une date de début et de fin.
 
-**/api/Sejour/Sejour/queries/GetSejoursParDateQuery**
+**GetSejoursParDateQuery**
 
 #### Paramètres
 
@@ -33,7 +33,7 @@ En cas de succès une liste d'entité **Sejour** :
 
 Retourne un séjour correspondant à l'ID externe donné.
 
-**/api/Sejour/Sejour/queries/GetSejourParIdExterneQuery**
+**GetSejourParIdExterneQuery**
 
 #### Paramètres
 

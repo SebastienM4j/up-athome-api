@@ -4,7 +4,7 @@
 
 Crée un passage ponctuel
 
-**/api/Sejour/PassagePonctuel/commands/CreerPassagePonctuelCommand/Execute**
+**CreerPassagePonctuelCommand**
 
 ### Paramètres
 
@@ -25,7 +25,7 @@ Si la création réussie, l'ID du passage créé.
 
 Met-à-jour le passage ponctuel spécifié.
 
-**/api/Sejour/PassagePonctuel/commands/MettreAJourPassagePonctuelCommand/Execute**
+**MettreAJourPassagePonctuelCommand**
 
 ### Paramètres
 
@@ -41,7 +41,7 @@ Met-à-jour le passage ponctuel spécifié.
 
 Supprime le passage spécifié.
 
-**/api/Sejour/PassagePonctuel/commands/SupprimerPassagePonctuelCommand/Execute**
+**SupprimerPassagePonctuelCommand**
 
 ### Paramètres
 
@@ -51,7 +51,7 @@ Supprime le passage spécifié.
 
 Retourne une liste de passages ponctuels.
 
-**/api/Sejour/PassagePonctuel/queries/GetPassagePonctuelParSejourEtDatesQuery**
+**GetPassagePonctuelParSejourEtDatesQuery**
 
 ### Paramètres
 

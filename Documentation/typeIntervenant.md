@@ -4,7 +4,7 @@
 
 Retourne la liste des types d'intervenants existants sur AtHome.
 
-**/api/Sejour/Sejour/queries/GetTypesIntervenantsQuery**
+**GetTypesIntervenantsQuery**
 
 ### Paramètres
 

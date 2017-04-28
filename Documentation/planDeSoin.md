@@ -6,7 +6,7 @@
 
 Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
-**/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParSejoursEtDatesQuery**
+**GetPlansSoinsParSejoursEtDatesQuery**
 
 #### Paramètres
 
@@ -43,7 +43,7 @@ Entité **Acte** :
 
 Retourne une liste de plans de soins correspondants aux IDs de séjours donnés.
 
-**/api/Sejour/PlanSoinSalarie/queries/GetPlansSoinsParIdQuery**
+**GetPlansSoinsParIdQuery**
 
 #### Paramètres
 
@@ -78,7 +78,7 @@ Entité **Acte** :
 
 Crée un plan de soin pour un séjour.
 
-**/api/Sejour/PlanSoinSalarie/commands/CreerPlanDeSoinSalarieCommand/Execute**
+**CreerPlanDeSoinSalarieCommand**
 
 ### Paramètres
 
@@ -106,7 +106,7 @@ Si la création a réussi l'id du plan de soin créé.
 
 Met un plan de soins à jour.
 
-**/api/Sejour/PlanSoinSalarie/commands/MettreAJourPlanDeSoinSalarieCommand/Execute**
+**MettreAJourPlanDeSoinSalarieCommand**
 
 ### Paramètres
 
@@ -132,7 +132,7 @@ Entité **LignePlanSoins** :
 
 Supprime le plan de soins correspondant à l'ID donné.
 
-**/api/Sejour/PlanSoinSalarie/commands/SupprimerPlanSoinCommand/Execute**
+**SupprimerPlanSoinCommand**
 
 ### Paramètres
 
