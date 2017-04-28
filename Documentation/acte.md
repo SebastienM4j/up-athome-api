@@ -6,9 +6,10 @@ Retourne la liste des actes existants sur AtHome.
 
 **GetActesQuery**
 
-### Paramètres
+### Paramètres facultatifs
 
-- `Aucun`
+- `Libelle` : Libellé de l'acte *(string)* (égalité stricte case sensitive)
+- `LibelleCourt` : Libellé court de l'acte *(string)*  (égalité stricte case sensitive)
 
 ### Retour
 
@@ -16,6 +17,7 @@ En cas de succès la liste d'actes définie dans AtHome :
 
 - `ActeId` : ID de l'acte *(int)*
 - `Libelle` : Nom de l'acte *(string)*
+- `LibelleCourt` : Nom court de l'acte *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
 
 ## Obtenir un Acte par ID
@@ -34,6 +36,7 @@ En cas de succès la liste d'actes définie dans AtHome :
 
 - `ActeId` : ID de l'acte *(int)*
 - `Libelle` : Nom de l'acte *(string)*
+- `LibelleCourt` : Nom court de l'acte *(string)*
 - `TypeIntervenantId` : ID du type d'intervenant *(decimal)*
 
 ## Créer un Acte
