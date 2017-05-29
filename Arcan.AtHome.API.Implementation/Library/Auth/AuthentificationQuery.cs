@@ -32,7 +32,7 @@ namespace Arcan.AtHome.API.Implementation.Queries
     }
 
     [DataContract]
-    internal class LoginResult
+    internal class HttpCookie
     {
         [DataMember]
         public string Name { get; set; }
@@ -112,9 +112,7 @@ namespace Arcan.AtHome.API.Implementation.Queries
             HttpClient clientAtHome = new HttpClient();
 
             clientAtHome.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            dynamic samlArg = new System.Dynamic.ExpandoObject();
-            samlArg.Saml = authResult.Saml;
-            StringContent body = new StringContent(JsonConvert.SerializeObject(samlArg), Encoding.UTF8, "application/json");
+            StringContent body = new StringContent(string.Format("'{0}'", authResult.Saml), Encoding.UTF8, "application/json");
 
             if (authResult.Url.EndsWith("/") == false)
                 authResult.Url += "/";
@@ -123,11 +121,10 @@ namespace Arcan.AtHome.API.Implementation.Queries
                 return null;
 
             string responseBody = response.Content.ReadAsStringAsync().Result;
-            ActionResult<LoginResult> loginResult = JsonConvert.DeserializeObject<ActionResult<LoginResult>>(responseBody);
-            if (loginResult == null || loginResult.Succeeded == false)
-                return null;
 
-            return loginResult.Entity.Value;
+            HttpCookie cookie = JsonConvert.DeserializeObject<HttpCookie>(responseBody);
+            
+            return cookie.Value;
         }
     }
 }
