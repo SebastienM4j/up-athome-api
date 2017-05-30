@@ -15,6 +15,22 @@ Crée une tournée
 
 Si succès, ID de la tournée.
 
+##Obtenir une tournée par son Id
+
+Retourne la tournée dont l'identifiant est passé en paramètre
+
+**GetTourneeParIdQuery**
+
+### Paramètres
+- `Id` : Identifiant unique de la tournée *(Guid)*
+
+### Retour
+
+Si l'identifiant est valide et la tournée existe
+- `Id` : Identifiant de la tournée
+- `Nom` : Nom de la tournée
+- `AntenneId` : Identifiant unique de l'antenne préférentielle (nullable)
+
 ## Obtenir une tournée par son nom
 
 Retrouve une tournée en fonction du nom donné.
