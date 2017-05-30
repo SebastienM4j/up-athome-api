@@ -2,8 +2,6 @@
 
 ## Créer une tournée
 
-Crée une tournée
-
 **CreerTourneeCommand**
 
 ### Paramètres
@@ -19,13 +17,26 @@ Si succès, ID de la tournée.
 
 Retourne la tournée dont l'identifiant est passé en paramètre
 
+## Modifier une tournée
+
+**ModifierTourneeCommand**
+
+### Paramètres
+- `Id` : Identifiant unique de la tournée *(Guid)*
+- `Nom` : Nom de la tournée
+- `AntenneId` : Identifiant unique de l'antenne préférentielle (nullable)
+
+### Retour
+Message de succès ou d'erreur.
+
+## Récupérer une tournée par son Id
+
 **GetTourneeParIdQuery**
 
 ### Paramètres
 - `Id` : Identifiant unique de la tournée *(Guid)*
 
 ### Retour
-
 Si l'identifiant est valide et la tournée existe
 - `Id` : Identifiant de la tournée
 - `Nom` : Nom de la tournée
