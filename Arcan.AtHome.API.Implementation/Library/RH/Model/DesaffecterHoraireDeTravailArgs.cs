@@ -13,6 +13,5 @@ namespace Arcan.AtHome.API.Implementation.Queries
         public TimeSpan HeureDebut { get; set; }
 
         public TimeSpan HeureFin { get; set; }
-
     }
 }

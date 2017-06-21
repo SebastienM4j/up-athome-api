@@ -34,8 +34,11 @@ namespace Arcan.AtHome.API.Implementation.Queries
         public const string MettreAJourPassagePonctuel =        "/api/domain/PassagePonctuel/MettreAJourPassagePonctuelCommand/Execute ";
         public const string SupprimerPassagePonctuel =          "/api/domain/PassagePonctuel/SupprimerPassagePonctuelCommand/Execute";
         public const string CreerTournee =                      "/api/domain/Tour/CreerTourneeCommand/Execute";
+        public const string GetTourneeParNomQuery =             "/api/domain/Tour/GetTourneeParNomQuery";
+        public const string GetTourneeContenuParIdQuery =       "/api/domain/Tour/GetTourneeContenuParIdQuery";
         public const string AffecteSalarieTournee =             "/api/domain/Tour/AffecterSalarieATourneeCommand/Execute";
         public const string AffecterPassageTournee =            "/api/domain/Tour/AffecterPassageATourneeCommand/Execute";
+        public const string DesaffecterPassageTournee =         "/api/domain/Tour/DesaffecterPassageATourneeCommand/Execute";
         public const string CreerVille =                        "/api/domain/Ville/CreateVilleCommand/Execute";
         public const string GetVillesParCodePostal =            "/api/domain/Ville/GetVilleParCodePostalQuery";
     }

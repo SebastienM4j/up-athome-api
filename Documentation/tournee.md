@@ -72,7 +72,8 @@ Retourne le contenu de la tournée (lignes de plan de soins).
 
 - `Date` : YYYY-MM-DDTHH:MM:SS *(string)*
 - `Salaries` : Liste d'ID de salaries _(array de decimal)_
-- `LignePlanSoinSalaries` : Lignes de plans de soins _(array de **LignePlanSoinSalaries**)_
+- `Passages` : Liste des passages (array de [HeureDebut, HeureFin, PassageId])
+
 
 ## Affecter un salarié à une tournée
 
