@@ -14,7 +14,7 @@ Si l'authentification réussie, la réponse contient une **URL** et une réponse
 
 ## 2) S'authentifier sur le site AtHome
 
-Pour cela il faut appeler l'URL obtenue à l'étape précédente et passer le SAML en *POST* au format *JSON*, exemple :
+Pour cela il faut appeler l'URL obtenue à l'étape précédente et passer le SAML en *POST*, exemple :
 
 **https://dev.arcan.fr/api/Authentification/Login**
 
