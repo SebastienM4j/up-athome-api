@@ -2,6 +2,8 @@
 
 Avant de pouvoir utiliser les APIs une authentification est nécéssaire, elle se déroule en 2 étapes. Pour cela une **APIKEY** et une **APISECRET** vous sont fournis.
 
+_Le script [authentification.sh](authentification.sh) fourni un exemple complet avec cURL._
+
 ## 1) Obtenir l'URL du site AtHome et une réponse SAML
 
 Appeler **https://auth.arcan.fr/api/ApiLogin/GetAuthData?apiKey=APIKEY&apiSecret=APISECRET&uniqueCode=UNIQUECODE** avec les paramètres suivants :
